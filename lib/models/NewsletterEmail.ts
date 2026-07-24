@@ -17,6 +17,8 @@ export interface INewsletterEmail extends Document {
   source: NewsletterSource;
   accepted: boolean;
   userId: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const newsletterEmailSchema = new Schema<INewsletterEmail>(

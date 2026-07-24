@@ -1,11 +1,13 @@
 import { NextRequest } from "next/server";
 import { connectDB } from "@/lib/db";
-import ReturnRequest from "@/lib/models/ReturnRequest";
+import ReturnRequest, {
+  type ReturnRequestType,
+} from "@/lib/models/ReturnRequest";
 import { requireAdmin } from "@/lib/auth";
 import { uploadDataUrl, isCloudinaryConfigured } from "@/lib/cloudinary";
 import { jsonOk, jsonMsg, jsonError, handleRouteError } from "@/lib/api-utils";
 
-const ALLOWED_TYPES = new Set([
+const ALLOWED_TYPES = new Set<string>([
   "retour",
   "echange",
   "reclamation",
@@ -88,7 +90,7 @@ export async function POST(req: NextRequest) {
       phone: String(body.phone || "").trim(),
       comment,
       wilaya: String(body.wilaya || "").trim(),
-      requestType,
+      requestType: requestType as ReturnRequestType,
       trackingNumber: String(body.trackingNumber || "").trim(),
       buyerContact: String(body.buyerContact || "").trim(),
       pictures,
