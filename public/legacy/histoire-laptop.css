@@ -1,0 +1,248 @@
+/* Notre histoire — laptop layout */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  body.histoire-page.diy-page .diy-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+
+  body.histoire-page .story-page {
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  /* ── Intro story blocks ── */
+  body.histoire-page .story-top {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px max(32px, calc((100% - 1300px) / 2)) 16px;
+    box-sizing: border-box;
+  }
+
+  body.histoire-page .story-block {
+    max-width: none;
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  body.histoire-page .story-block--intro .story-hero-frame,
+  body.histoire-page .story-block--intro .story-hero-link {
+    width: 650px;
+    max-width: 100%;
+  }
+
+  body.histoire-page .story-hero-frame {
+    width: 100%;
+    height: 393px;
+    margin: 0 auto 24px;
+    border-radius: 14px;
+  }
+
+  body.histoire-page .story-hero-link {
+    width: 100%;
+    margin: 0 auto 24px;
+  }
+
+  body.histoire-page .story-block h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: var(--ink, #11214a);
+  }
+
+  body.histoire-page .story-block p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  body.histoire-page .story-block--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    text-align: left;
+    padding: 48px 0;
+  }
+
+  body.histoire-page .story-block--split .story-block-media {
+    width: 100%;
+  }
+
+  body.histoire-page .story-block--split .story-hero-frame,
+  body.histoire-page .story-block--split .story-hero-link {
+    width: 100%;
+    margin: 0;
+  }
+
+  body.histoire-page .story-block--split .story-block-copy p {
+    margin: 0;
+    max-width: none;
+  }
+
+  body.histoire-page .story-block--split .story-btn {
+    margin-top: 24px;
+  }
+
+  body.histoire-page .story-block--split-reverse {
+    direction: rtl;
+  }
+
+  body.histoire-page .story-block--split-reverse > * {
+    direction: ltr;
+  }
+
+  body.histoire-page .story-block.story-social .social-row {
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
+
+  body.histoire-page .story-block.story-social.story-block--split .story-block-copy {
+    text-align: left;
+  }
+
+  /* ── Shop intro ── */
+  body.histoire-page .story-shop-intro {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 48px max(32px, calc((100% - 1300px) / 2)) 8px;
+    box-sizing: border-box;
+  }
+
+  body.histoire-page .story-shop-intro h2 {
+    max-width: none;
+    font-size: 2.25rem;
+    margin-bottom: 12px;
+  }
+
+  body.histoire-page .story-shop-intro h3 {
+    font-size: 1.15rem;
+  }
+
+  /* ── Shop carousels ── */
+  body.histoire-page .story-section {
+    padding: 40px 0 48px;
+  }
+
+  body.histoire-page .story-section-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 max(32px, calc((100% - 1300px) / 2));
+    box-sizing: border-box;
+  }
+
+  body.histoire-page .story-section .section-heading {
+    font-size: 1.75rem;
+    margin-bottom: 28px;
+    padding: 0;
+  }
+
+  body.histoire-page .story-section .progress-rail {
+    display: none;
+  }
+
+  body.histoire-page .story-section .carousel-row--tiles {
+    margin: 0 auto;
+  }
+
+  body.histoire-page .section-cta-wrap {
+    max-width: 360px;
+    padding: 24px 0 0;
+    margin: 0 auto;
+  }
+
+  /* ── Newsletter ── */
+  body.histoire-page .story-newsletter-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 max(32px, calc((100% - 1300px) / 2)) 8px;
+    box-sizing: border-box;
+  }
+
+  /* ── Bottom promo cards ── */
+  body.histoire-page .story-hero-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px max(32px, calc((100% - 1300px) / 2)) 56px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+
+  body.histoire-page .story-hero-grid .story-hero-link {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.histoire-page .story-hero-grid .story-hero-frame {
+    width: 100%;
+    height: 280px;
+    margin: 0;
+    border-radius: 14px;
+  }
+
+  /* ── Shell + navbar: match home laptop header ── */
+  html,
+  body.histoire-page.diy-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.histoire-page.diy-page .app-shell {
+    background: #fff;
+    overflow-x: clip;
+  }
+
+  body.histoire-page.diy-page .phone {
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+    overflow-x: clip;
+  }
+
+  body.histoire-page.diy-page .app-shell > .promo-bar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #bfeafb !important;
+    text-align: left;
+    padding: 8px var(--chrome-pad-x) !important;
+    margin: 0;
+  }
+
+  body.histoire-page.diy-page .app-shell > .promo-bar .promo-bar-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.histoire-page.diy-page .app-shell > .promo-bar .promo-bar-utils {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  body.histoire-page.diy-page .app-shell > #mainNav.nav,
+  body.histoire-page.diy-page .app-shell > header#mainNav.nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px var(--chrome-pad-x) 16px !important;
+    background: #004ebc !important;
+    gap: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+}

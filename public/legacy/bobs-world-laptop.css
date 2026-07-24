@@ -1,0 +1,602 @@
+/* Bob's World — laptop layout only (1400px+, 1300px content grid) */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  body.bobs-world-page.diy-page {
+    background: #dee3f0;
+  }
+
+  html,
+  body.bobs-world-page.diy-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.bobs-world-page.diy-page .app-shell {
+    background: #fffdf8;
+    max-width: 100% !important;
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  body.bobs-world-page.diy-page .phone {
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+    background: #fff;
+    min-height: auto;
+    overflow-x: clip;
+  }
+
+  body.bobs-world-page .diy-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto;
+    background: #004ebc;
+  }
+
+  /* ── Row 1: hero + banner side by side (1300px grid, no overlap) ── */
+  body.bobs-world-page .bobs-hero-row {
+    display: grid;
+    grid-template-columns: 630px 650px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 28px max(32px, calc((100% - 1300px) / 2)) 24px;
+    box-sizing: border-box;
+    background: #004ebc;
+    overflow: hidden;
+  }
+
+  body.bobs-world-page .bobs-hero,
+  body.bobs-world-page .bobs-banner {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    line-height: 0;
+    min-width: 0;
+  }
+
+  body.bobs-world-page .bobs-hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: -30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  body.bobs-world-page .bobs-hero img {
+    display: block;
+    width: 100%;
+    max-width: 660px;
+    height: auto;
+    max-height: 440px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  body.bobs-world-page .bobs-banner {
+    position: relative;
+    z-index: 2;
+  }
+
+  body.bobs-world-page .bobs-banner img {
+    width: 650px;
+    height: 393px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+    display: block;
+  }
+
+  /* ── Row 2: shop banner 310×501 + 3 product cards ── */
+  body.bobs-world-page .bobs-shop {
+    background: #7de3f7;
+    padding: 24px max(32px, calc((100% - 1300px) / 2)) 32px;
+  }
+
+  body.bobs-world-page .bobs-shop-row {
+    display: grid;
+    grid-template-columns: 310px repeat(3, 310px);
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+
+  body.bobs-world-page .bobs-shop-banner-link {
+    display: block;
+    line-height: 0;
+  }
+
+  body.bobs-world-page .bobs-shop-banner {
+    width: 310px;
+    height: 501px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  body.bobs-world-page #bobsProductCarousel {
+    grid-column: 2 / 5;
+    padding: 0;
+    min-width: 0;
+  }
+
+  body.bobs-world-page #bobsProductCarousel .progress-rail {
+    display: none !important;
+  }
+
+  body.bobs-world-page #bobsProductTrack {
+    display: grid;
+    grid-template-columns: repeat(3, 310px);
+    gap: 20px;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+    height: auto;
+  }
+
+  body.bobs-world-page #bobsProductTrack .product-card {
+    flex: none !important;
+    width: 310px !important;
+    min-width: 310px !important;
+    max-width: 310px !important;
+    height: 501px !important;
+    box-sizing: border-box;
+  }
+
+  body.bobs-world-page #bobsProductTrack .product-card:nth-child(n + 4) {
+    display: none !important;
+  }
+
+  body.bobs-world-page #bobsProductTrack .product-card .img-wrap {
+    height: 220px;
+  }
+
+  /* ── Row 3: video 650×363 + vision copy ── */
+  body.bobs-world-page .bobs-vision {
+    background: #004ebc;
+    padding: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body.bobs-world-page .bobs-vision-row {
+    display: grid;
+    grid-template-columns: 650px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 32px max(32px, calc((100% - 1300px) / 2));
+    box-sizing: border-box;
+    background: #ff6e00;
+    align-self: stretch;
+  }
+
+  body.bobs-world-page .bobs-vision .bobs-video-wrap {
+    width: 650px;
+    height: 363px;
+    padding-bottom: 0;
+    border-radius: 10px;
+    margin: 0;
+  }
+
+  body.bobs-world-page .bobs-vision .bobs-video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.bobs-world-page .bobs-vision-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 8px 0;
+  }
+
+  body.bobs-world-page .bobs-vision-logo {
+    width: min(300px, 100%);
+    margin: 0 0 20px;
+  }
+
+  body.bobs-world-page .bobs-vision-text {
+    margin: 0 0 24px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  body.bobs-world-page .bobs-vision-cta-wrap {
+    margin: 0;
+    padding: 0;
+    max-width: 260px;
+    width: 100%;
+  }
+
+  /* ── Row 4: coloring hero banner 1300×184, centered ── */
+  body.bobs-world-page .bobs-coloring-hero {
+    display: block;
+    width: 1300px !important;
+    max-width: min(1300px, calc(100% - 64px)) !important;
+    height: 184px;
+    margin: 28px auto 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+    align-self: center;
+  }
+
+  /* ── Row 5: 3 painting cards 423×332 + centered View All ── */
+  body.bobs-world-page .bobs-paintings {
+    background: #3772ff;
+    padding: 24px max(32px, calc((100% - 1300px) / 2)) 0;
+    display: grid;
+    grid-template-columns: repeat(3, 423px);
+    justify-content: space-between;
+    gap: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body.bobs-world-page .bobs-paintings .painting-card {
+    display: flex;
+    flex-direction: column;
+    width: 423px;
+    height: 332px;
+    margin-top: 0 !important;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  body.bobs-world-page .bobs-paintings .photo-card {
+    margin: 0;
+    border-radius: 16px;
+    flex: 0 0 auto;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  body.bobs-world-page .bobs-paintings .photo-card svg,
+  body.bobs-world-page .bobs-paintings .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-title {
+    font-size: 22px;
+    padding: 0;
+    line-height: 1.15;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-desc {
+    font-size: 15px;
+    line-height: 1.45;
+    padding: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body.bobs-world-page .bobs-paintings .view-all {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 28px;
+    margin-top: 0;
+  }
+
+  body.bobs-world-page .bobs-paintings .btn-all,
+  body.bobs-world-page .bobs-paintings .shop-all-btn {
+    display: inline-block;
+    width: auto;
+    max-width: min(280px, 88vw);
+    margin: 0 auto;
+    background: #004ebc;
+    color: #fff;
+    text-align: center;
+    font-family: 'Buenos Aires', sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding: 15px 32px;
+    border-radius: 999px;
+    min-height: 48px;
+    box-shadow: 0 4px 0 #003894;
+    transition: transform 0.08s ease, filter 0.15s ease;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+
+  body.bobs-world-page .bobs-paintings .btn-all:hover,
+  body.bobs-world-page .bobs-paintings .shop-all-btn:hover {
+    filter: brightness(1.08);
+  }
+
+  body.bobs-world-page .bobs-paintings .btn-all:active,
+  body.bobs-world-page .bobs-paintings .shop-all-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #003894;
+  }
+
+  /* ── Row 6: play lab copy + video 650×363 ── */
+  body.bobs-world-page .bobs-playlab {
+    background: #4caf50;
+    padding: 36px max(32px, calc((100% - 1300px) / 2)) 48px;
+  }
+
+  body.bobs-world-page .bobs-playlab-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 650px;
+    gap: 20px;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.bobs-world-page .bobs-playlab-copy {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+  }
+
+  body.bobs-world-page .bobs-playlab .bobs-video-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    width: 650px;
+    height: 363px;
+    padding-bottom: 0;
+    border-radius: 10px;
+    margin: 0;
+  }
+
+  body.bobs-world-page .bobs-playlab .bobs-video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.bobs-world-page .bobs-playlab-logo {
+    width: min(260px, 100%);
+    margin: 0 0 20px;
+  }
+
+  body.bobs-world-page .bobs-playlab-text {
+    margin: 0 0 24px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 1.55;
+    text-align: left;
+  }
+
+  body.bobs-world-page .bobs-playlab .bobs-vision-cta-wrap {
+    margin: 0;
+    padding: 0;
+    max-width: 260px;
+    width: 100%;
+  }
+
+  /* ── Navbar + promo: match home page laptop header exactly ── */
+  body.bobs-world-page.diy-page .app-shell > .promo-bar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #bfeafb !important;
+    text-align: left;
+    padding: 8px var(--chrome-pad-x) !important;
+    margin: 0;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > .promo-bar .promo-bar-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > .promo-bar .promo-bar-msg {
+    margin: 0;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > .promo-bar .promo-bar-utils {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    flex-shrink: 0;
+  }
+}
+
+/* Tablet: fluid hero + painting cards (fixed desktop widths overflow below ~1300px) */
+@media (min-width: 800px) and (max-width: 1150px) {
+  body.bobs-world-page .bobs-hero-row {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(12px, 2vw, 20px);
+    max-width: 100%;
+    width: 100%;
+    padding: 20px clamp(16px, 2.5vw, 28px) 18px;
+    overflow: hidden;
+    justify-content: stretch;
+  }
+
+  body.bobs-world-page .bobs-hero {
+    margin-left: 0;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  body.bobs-world-page .bobs-hero img {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  body.bobs-world-page .bobs-banner {
+    min-width: 0;
+  }
+
+  body.bobs-world-page .bobs-banner img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: 650 / 393;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  body.bobs-world-page .bobs-paintings {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 14px;
+    padding: 24px 20px 0;
+    overflow-x: clip;
+  }
+
+  body.bobs-world-page .bobs-paintings .painting-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    gap: 8px;
+  }
+
+  body.bobs-world-page .bobs-paintings .photo-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 423 / 200;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-text {
+    display: flex !important;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-title {
+    font-size: clamp(15px, 1.9vw, 18px);
+    padding: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  body.bobs-world-page .bobs-paintings .card-desc {
+    font-size: clamp(12px, 1.4vw, 14px);
+    line-height: 1.4;
+    padding: 0;
+    -webkit-line-clamp: 3;
+  }
+
+  body.bobs-world-page .bobs-paintings .view-all {
+    padding: 12px 0 24px;
+  }
+
+  body.bobs-world-page .bobs-paintings .btn-all,
+  body.bobs-world-page .bobs-paintings .shop-all-btn {
+    font-size: 0.95rem;
+    padding: 13px 28px;
+  }
+}
+
+@media (min-width: 1400px) {
+  body.bobs-world-page.diy-page .app-shell > #mainNav.nav,
+  body.bobs-world-page.diy-page .app-shell > header#mainNav.nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px var(--chrome-pad-x) 16px !important;
+    background: #004ebc !important;
+    gap: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-default,
+  body.bobs-world-page.diy-page .app-shell > header#mainNav .nav-default {
+    gap: 20px !important;
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-left,
+  body.bobs-world-page.diy-page .app-shell > header#mainNav .nav-left {
+    display: flex !important;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-icons.nav-utils,
+  body.bobs-world-page.diy-page .app-shell > header#mainNav .nav-icons.nav-utils {
+    flex-shrink: 0;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .logo img,
+  body.bobs-world-page.diy-page .app-shell > header#mainNav .logo img {
+    transform: none !important;
+    max-width: none !important;
+    height: clamp(44px, 3.2vw, 56px) !important;
+  }
+  body.bobs-world-page.diy-page .app-shell > #mainNav #menuOpenBtn {
+    display: none !important;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-left > .nav-icons {
+    display: none !important;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-mascot {
+    display: block !important;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .desktop-nav {
+    display: flex !important;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-util-label {
+    display: inline !important;
+    visibility: visible !important;
+  }
+
+  body.bobs-world-page.diy-page .app-shell > #mainNav .nav-util-email {
+    display: inline-flex !important;
+  }
+}

@@ -1,0 +1,130 @@
+/* ------------------------------------------------------------------
+   Global performance & loading-experience styles.
+   Included automatically on every legacy page by LegacyPage.tsx.
+   ------------------------------------------------------------------ */
+
+@keyframes ajb-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ---- Skeleton state -------------------------------------------------
+   Product containers that have not been hydrated with API data yet
+   (no data-api-hydrated="1") mask their cards as skeletons. This kills
+   the "demo content flash": static placeholder cards keep the exact
+   final layout but render as shimmer blocks until real data arrives. */
+
+#productTrack:not([data-api-hydrated="1"]) .product-card,
+#bookTrack:not([data-api-hydrated="1"]) .product-card,
+#featuredTrack:not([data-api-hydrated="1"]) .product-card,
+#relatedTrack:not([data-api-hydrated="1"]) .product-card,
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card,
+#productGrid:not([data-api-hydrated="1"]) .product-card,
+.product-grid:not([data-api-hydrated="1"]) .product-card,
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card {
+  pointer-events: none;
+  user-select: none;
+}
+
+#productTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+#bookTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+#featuredTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+#relatedTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+#productGrid:not([data-api-hydrated="1"]) .product-card .product-image,
+.product-grid:not([data-api-hydrated="1"]) .product-card .product-image,
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card .img-wrap {
+  background: linear-gradient(90deg, #eef1f8 25%, #f7f8fc 50%, #eef1f8 75%) !important;
+  background-size: 200% 100% !important;
+  animation: ajb-shimmer 1.4s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+#productTrack:not([data-api-hydrated="1"]) .product-card img,
+#productTrack:not([data-api-hydrated="1"]) .product-card svg,
+#bookTrack:not([data-api-hydrated="1"]) .product-card img,
+#bookTrack:not([data-api-hydrated="1"]) .product-card svg,
+#featuredTrack:not([data-api-hydrated="1"]) .product-card img,
+#featuredTrack:not([data-api-hydrated="1"]) .product-card svg,
+#relatedTrack:not([data-api-hydrated="1"]) .product-card img,
+#relatedTrack:not([data-api-hydrated="1"]) .product-card svg,
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card img,
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card svg,
+#productGrid:not([data-api-hydrated="1"]) .product-card img,
+#productGrid:not([data-api-hydrated="1"]) .product-card svg,
+.product-grid:not([data-api-hydrated="1"]) .product-card img,
+.product-grid:not([data-api-hydrated="1"]) .product-card svg,
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card img,
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card svg {
+  visibility: hidden !important;
+}
+
+#productTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+#bookTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+#featuredTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+#relatedTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+#productGrid:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+.product-grid:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn),
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .rating-row, .rating-row *, .add-cart-btn, .wishlist-btn) {
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
+#productTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+#bookTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+#featuredTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+#relatedTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+#bobsProductTrack:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+#productGrid:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+.product-grid:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn),
+.age-section .carousel:not([data-api-hydrated="1"]) .product-card :is(.product-title, .price, .product-price, .add-cart-btn) {
+  background: #eef1f8 !important;
+  border-color: transparent !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+
+/* ---- Image fade-in --------------------------------------------------
+   Dynamically injected card images start transparent and fade in once
+   decoded. The 1.2s keyframe fallback guarantees the image becomes
+   visible even if the load event was missed (e.g. cached images). */
+
+img.ajb-img {
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+  animation: ajb-img-reveal 0s linear 1.2s forwards;
+}
+
+img.ajb-img.ajb-in {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes ajb-img-reveal {
+  to { opacity: 1; }
+}
+
+/* ---- Rendering cost -------------------------------------------------
+   Skip layout/paint work for the footer until it approaches the
+   viewport. */
+
+.site-footer,
+footer.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img.ajb-img {
+    opacity: 1;
+    transition: none;
+    animation: none;
+  }
+  #productTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
+  #productGrid:not([data-api-hydrated="1"]) .product-card .product-image,
+  .product-grid:not([data-api-hydrated="1"]) .product-card .product-image,
+  .age-section .carousel:not([data-api-hydrated="1"]) .product-card .img-wrap {
+    animation: none;
+  }
+}

@@ -1,0 +1,153 @@
+/* Phone only: horizontal list image — 198 × 202.5px */
+@media (max-width: 499px) {
+  .product-card .img-wrap,
+  .product-card .product-image,
+  .product-card .product-cover,
+  .product-card .cover {
+    width: 198px !important;
+    height: 202.5px !important;
+    flex: 0 0 198px !important;
+    max-width: 198px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .product-card .img-wrap {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Listing cards: keep image flush left in horizontal row layout */
+  .product-grid .product-card .product-image,
+  .product-grid .product-card .product-cover,
+  .product-grid .product-card .cover {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .product-card .img-wrap img,
+  .product-card .product-image img,
+  .product-card .product-cover img,
+  .product-card .cover img,
+  .product-card .img-wrap svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Phone + small tablet: rating row / heart / price layout */
+@media (max-width: 899px) {
+  /* Wishlist — right side of rating row (where price used to be) */
+  .product-grid .product-card .rating-row .wishlist-btn,
+  .product-card .rating-row .wishlist-btn {
+    position: static !important;
+    margin: 0 0 0 auto !important;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.92);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    color: #004ebc;
+  }
+
+  .product-card .rating-row .wishlist-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .product-card .wishlist-btn.active,
+  .product-card .wishlist-btn.is-active,
+  .product-card .rating-row .wishlist-btn.active,
+  .product-card .rating-row .wishlist-btn.is-active {
+    background: #004ebc !important;
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 78, 188, 0.35);
+  }
+
+  .product-card .wishlist-btn.active svg,
+  .product-card .wishlist-btn.is-active svg {
+    color: #fff;
+    stroke: #fff;
+  }
+
+  .product-card .wishlist-btn.active svg path,
+  .product-card .wishlist-btn.is-active svg path {
+    fill: #fff;
+    stroke: #fff;
+  }
+
+  .product-grid .product-card .rating-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Price under product name */
+  .product-grid .product-card .product-price,
+  .product-grid .product-card .price {
+    order: unset;
+    margin: 0 !important;
+  }
+
+  /* Rating stars + rating-num — 128.41 × 16 */
+  .product-card .rating-left,
+  .product-card .rating-row > div:has(.stars) {
+    width: 128.41px !important;
+    height: 16px !important;
+    flex: 0 0 128.41px !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .product-card .stars {
+    font-size: 14px !important;
+    line-height: 16px !important;
+    height: 16px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  .product-card .stars-fill {
+    line-height: 16px;
+  }
+
+  .product-card .rating-num,
+  .product-card .rating-text {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    margin-left: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Rating price — height 21.6; width grows so full amount + DZD stays visible */
+  .product-card .price,
+  .product-card .product-price {
+    width: auto !important;
+    min-width: 52.89px;
+    height: 21.6px !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 21.6px !important;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,450 @@
+<div class="adol-app dash-shell">
+  <div class="dash-overlay" id="dash-overlay" aria-hidden="true"></div>
+
+  <aside class="dash-sidebar" id="dash-sidebar" aria-label="Navigation du tableau de bord">
+    <div class="dash-sidebar-head">
+      <a href="/" aria-label="Accueil AJ BLOKS">
+        <img src="https://res.cloudinary.com/dbtkfjrvd/image/upload/v1782051890/Design_sans_titre_7_mwozaj.png" alt="AJ BLOKS">
+      </a>
+    </div>
+    <div class="dash-sidebar-label">Administration</div>
+    <nav class="dash-nav" id="dash-nav" role="tablist"></nav>
+    <div class="dash-sidebar-foot">
+      <a class="dash-sidebar-return" href="/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+        Retour à la boutique
+      </a>
+    </div>
+  </aside>
+
+  <div class="dash-main-wrap">
+    <header class="dash-topbar">
+      <button type="button" class="dash-menu-btn" id="dash-menu-btn" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+      <a class="dash-topbar-return" href="/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+        Retour à la boutique
+      </a>
+      <a class="dash-topbar-logo" href="/" aria-label="Accueil AJ BLOKS">
+        <img src="https://res.cloudinary.com/dbtkfjrvd/image/upload/v1782051890/Design_sans_titre_7_mwozaj.png" alt="AJ BLOKS">
+      </a>
+    </header>
+
+    <div class="dash-forbidden" id="dash-forbidden" role="alert">
+      <h1>Accès refusé</h1>
+      <p>Cette page est réservée aux administrateurs. Connectez-vous avec un compte admin pour continuer.</p>
+      <a class="primary-btn" href="/signin?tab=login">Se connecter</a>
+    </div>
+
+    <main class="main" id="dash-main">
+      <section class="content active" id="overview" role="tabpanel" aria-labelledby="tab-overview">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Vue d'ensemble</h1>
+            <p class="page-sub">Résumé de l'activité de la boutique.</p>
+          </div>
+        </div>
+        <div class="stats-grid" id="overview-stats"></div>
+        <div class="overview-panels">
+          <div class="panel overview-orders-panel">
+            <div class="section-header">
+              <h2 class="section-title">Commandes par statut</h2>
+              <button type="button" class="overview-link-btn" data-goto="orders">Voir tout</button>
+            </div>
+            <div class="overview-status-list" id="overview-order-statuses"></div>
+          </div>
+          <div class="panel overview-recent-panel">
+            <div class="section-header">
+              <h2 class="section-title">Dernières commandes</h2>
+              <button type="button" class="overview-link-btn" data-goto="orders">Commandes</button>
+            </div>
+            <div id="overview-recent-orders"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content" id="order" role="tabpanel" aria-labelledby="tab-order">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Produits</h1>
+            <p class="page-sub">Gérez le catalogue produits de la boutique.</p>
+          </div>
+          <button type="button" class="primary-btn" id="products-add-btn">+ Ajouter un produit</button>
+        </div>
+        <div class="panel">
+          <div class="product-grid" id="products-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="orders" role="tabpanel" aria-labelledby="tab-orders">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Commandes</h1>
+            <p class="page-sub">Consultez les commandes clients passées sur le site.</p>
+          </div>
+        </div>
+        <div class="orders-status-nav" id="orders-status-nav" role="tablist" aria-label="Filtrer par statut"></div>
+        <div class="orders-table">
+          <div class="orders-head">
+            <span>Client</span>
+            <span>Localisation</span>
+            <span>Total</span>
+            <span>Statut</span>
+            <span>Suivi</span>
+          </div>
+          <div id="orders-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="users" role="tabpanel" aria-labelledby="tab-users">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Utilisateurs</h1>
+            <p class="page-sub">Gérez les comptes clients et administrateurs.</p>
+          </div>
+          <button type="button" class="primary-btn" id="users-add-btn">+ Ajouter un utilisateur</button>
+        </div>
+        <div class="users-toolbar">
+          <label class="users-search-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M16.5 16.5L21 21"></path></svg>
+            <input type="search" id="users-search" placeholder="Rechercher par nom, e-mail, adresse…" autocomplete="off" aria-label="Rechercher des utilisateurs" />
+          </label>
+          <select id="users-role-filter" aria-label="Filtrer par rôle">
+            <option value="">Tous les rôles</option>
+            <option value="admin">Admin</option>
+            <option value="client">Client</option>
+          </select>
+        </div>
+        <div class="users-table">
+          <div class="users-head">
+            <span>Nom</span>
+            <span>E-mail</span>
+            <span>Rôle</span>
+            <span>Commandes</span>
+            <span>Codes promo</span>
+            <span>Kids Club</span>
+            <span>Anniversaire</span>
+            <span>Adresse</span>
+            <span>Actions</span>
+          </div>
+          <div id="users-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="returns" role="tabpanel" aria-labelledby="tab-returns">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Retours et échanges</h1>
+            <p class="page-sub">Demandes envoyées depuis Retours et échanges et Nous contacter.</p>
+          </div>
+        </div>
+        <div class="returns-toolbar">
+          <label class="users-search-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M16.5 16.5L21 21"></path></svg>
+            <input type="search" id="returns-search" placeholder="Rechercher…" autocomplete="off" aria-label="Rechercher des demandes" />
+          </label>
+        </div>
+        <div id="returns-status-nav" class="returns-status-nav" role="tablist" aria-label="Filtrer par statut"></div>
+        <div class="returns-table">
+          <div class="returns-head">
+            <span>Nom</span>
+            <span>E-mail</span>
+            <span>Numéro</span>
+            <span>Commentaire</span>
+            <span>Wilaya</span>
+            <span>Type de demande</span>
+            <span>Numéro de suivi</span>
+            <span>Picture</span>
+            <span>Actions</span>
+          </div>
+          <div id="returns-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="stores" role="tabpanel" aria-labelledby="tab-stores">
+        <div class="stores-hero">
+          <div class="stores-hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div>
+            <h2>Magasins</h2>
+            <p>Gérez les emplacements affichés sur la page Trouver un magasin.</p>
+          </div>
+        </div>
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Points de vente</h1>
+            <p class="page-sub">Ajoutez, modifiez ou supprimez des magasins.</p>
+          </div>
+          <button type="button" class="primary-btn" id="stores-add-btn">+ Ajouter un magasin</button>
+        </div>
+        <p class="stores-count" id="stores-count"></p>
+        <div class="play-list" id="stores-list"></div>
+      </section>
+
+      <section class="content" id="grossiste" role="tabpanel" aria-labelledby="tab-grossiste">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Catalogues grossiste</h1>
+            <p class="page-sub">Gérez les fiches catalogue de la page grossiste.</p>
+          </div>
+          <button type="button" class="primary-btn" id="grossiste-add-btn">+ Ajouter un catalogue</button>
+        </div>
+        <div class="grossiste-grid" id="grossiste-list"></div>
+      </section>
+
+      <section class="content" id="play" role="tabpanel" aria-labelledby="tab-play">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Jouer</h1>
+            <p class="page-sub">Gérez les contenus Jouer : vidéos, DIY, imprimables et Le monde de Bob.</p>
+          </div>
+        </div>
+        <div class="tab-group play-subtabs" id="play-subtabs">
+          <button type="button" class="tab active" data-play-tab="toys">Jouets en action</button>
+          <button type="button" class="tab" data-play-tab="diy">Activités DIY</button>
+          <button type="button" class="tab" data-play-tab="printables">Imprimables</button>
+          <button type="button" class="tab" data-play-tab="bobs">Le monde de Bob</button>
+        </div>
+
+        <div class="play-panel active" id="play-panel-toys">
+          <div class="play-panel-head">
+            <div><h2 class="play-panel-title">Jouets en action</h2><p class="play-panel-sub">Vidéos mettant en scène un ou plusieurs jouets.</p></div>
+            <button type="button" class="primary-btn" data-play-add="toys">+ Ajouter une vidéo</button>
+          </div>
+          <div class="play-list" id="play-toys-list"></div>
+        </div>
+
+        <div class="play-panel" id="play-panel-diy">
+          <div class="play-panel-head">
+            <div><h2 class="play-panel-title">Activités DIY</h2><p class="play-panel-sub">Fiches activités avec étapes illustrées.</p></div>
+            <button type="button" class="primary-btn" data-play-add="diy">+ Ajouter un DIY</button>
+          </div>
+          <div class="play-list" id="play-diy-list"></div>
+        </div>
+
+        <div class="play-panel" id="play-panel-printables">
+          <div class="play-panel-head">
+            <div><h2 class="play-panel-title">Imprimables</h2><p class="play-panel-sub">Fiches à imprimer avec PDF associé.</p></div>
+            <button type="button" class="primary-btn" data-play-add="printables">+ Ajouter un imprimable</button>
+          </div>
+          <div class="play-list" id="play-printables-list"></div>
+        </div>
+
+        <div class="play-panel" id="play-panel-bobs">
+          <div class="play-panel-head">
+            <div><h2 class="play-panel-title">Le monde de Bob</h2><p class="play-panel-sub">Vidéos YouTube ou MP4 pour la page Bob.</p></div>
+            <button type="button" class="primary-btn" data-play-add="bobs">+ Ajouter une vidéo</button>
+          </div>
+          <div class="play-list" id="play-bobs-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="reviews" role="tabpanel" aria-labelledby="tab-reviews">
+        <div class="page-head">
+          <div><h1 class="page-title">Avis</h1><p class="page-sub">Modérez les avis clients avant publication.</p></div>
+          <button type="button" class="primary-btn" id="review-add-open">+ Ajouter un avis</button>
+        </div>
+        <div class="reviews-summary">
+          <div class="review-stat"><div class="review-stat-num" id="review-pending-count">0</div><div class="review-stat-label">En attente</div></div>
+          <div class="review-stat"><div class="review-stat-num" id="review-published-count">0</div><div class="review-stat-label">Publiés</div></div>
+          <div class="review-stat"><div class="review-stat-num" id="review-avg-rating">—</div><div class="review-stat-label">Note moyenne</div></div>
+        </div>
+        <div class="reviews-block">
+          <div class="reviews-block-head">
+            <div>
+              <div class="reviews-block-title">Avis en attente</div>
+              <div class="reviews-block-sub">Soumis par les clients — en attente de validation</div>
+            </div>
+          </div>
+          <div class="reviews-list" id="reviews-pending-list"></div>
+        </div>
+        <div class="reviews-block">
+          <div class="reviews-block-head">
+            <div>
+              <div class="reviews-block-title">Publiés sur le site</div>
+              <div class="reviews-block-sub">Avis acceptés visibles par les visiteurs</div>
+            </div>
+          </div>
+          <div class="reviews-list" id="reviews-published-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="newsletter" role="tabpanel" aria-labelledby="tab-newsletter">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">E-mails infolettre</h1>
+            <p class="page-sub">Collecte des e-mails (compte, footer, drawer, Notre histoire, préférences cookies).</p>
+          </div>
+          <div class="newsletter-head-actions">
+            <button type="button" class="back-btn" id="newsletter-export-accepted">Exporter acceptés</button>
+            <button type="button" class="back-btn" id="newsletter-export-all">Exporter tous</button>
+            <button type="button" class="primary-btn" id="newsletter-add-btn">+ Ajouter un e-mail</button>
+          </div>
+        </div>
+        <div class="reviews-summary">
+          <div class="review-stat"><div class="review-stat-num" id="newsletter-total-count">0</div><div class="review-stat-label">Total</div></div>
+          <div class="review-stat"><div class="review-stat-num" id="newsletter-accepted-count">0</div><div class="review-stat-label">Acceptent l'envoi</div></div>
+          <div class="review-stat"><div class="review-stat-num" id="newsletter-refused-count">0</div><div class="review-stat-label">Refusent l'envoi</div></div>
+        </div>
+        <div class="returns-toolbar">
+          <label class="users-search-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M16.5 16.5L21 21"></path></svg>
+            <input type="search" id="newsletter-search" placeholder="Rechercher…" autocomplete="off" aria-label="Rechercher des e-mails" />
+          </label>
+        </div>
+        <div class="newsletter-table">
+          <div class="newsletter-head">
+            <span>E-mail</span>
+            <span>Nom</span>
+            <span>Source</span>
+            <span>Statut envoi</span>
+            <span>Actions</span>
+          </div>
+          <div id="newsletter-list"></div>
+        </div>
+      </section>
+
+      <section class="content" id="settings" role="tabpanel" aria-labelledby="tab-settings">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Paramètres</h1>
+            <p class="page-sub">Configurez la bannière promotionnelle en haut du site.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="promo-bar-preview" id="promo-bar-preview">Livraison gratuite pour les commandes de plus de 6500 DZD</div>
+          <form class="promo-bar-form" id="promo-bar-form">
+            <div>
+              <label for="promo-bar-input">Texte de la bannière promo</label>
+              <input type="text" id="promo-bar-input" name="sentence" maxlength="120" placeholder="Livraison gratuite pour les commandes de plus de 6500 DZD" required>
+            </div>
+            <button type="submit" class="primary-btn">Enregistrer</button>
+            <p class="promo-save-msg" id="promo-save-msg">Enregistré — la bannière sera mise à jour sur le site.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="review-half-page" id="review-half-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="review-half-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="review-half-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="review-half-title">Ajouter un avis</h2>
+      <button type="button" class="review-half-close" id="review-half-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body">
+      <form id="review-add-form">
+        <div class="review-form-grid">
+          <div class="review-field">
+            <label class="review-field-label" for="review-user-name">Nom du client</label>
+            <input type="text" id="review-user-name" name="userName" required>
+          </div>
+          <div class="review-field">
+            <label class="review-field-label" for="review-product-name">Nom du produit</label>
+            <input type="text" id="review-product-name" name="productName" required>
+          </div>
+          <div class="review-field">
+            <span class="review-field-label">Note</span>
+            <div class="star-picker" id="review-star-picker" role="group" aria-label="Note">
+              <button type="button" class="star-picker-btn" data-star="1" aria-label="1 étoile">★</button>
+              <button type="button" class="star-picker-btn" data-star="2" aria-label="2 étoiles">★</button>
+              <button type="button" class="star-picker-btn" data-star="3" aria-label="3 étoiles">★</button>
+              <button type="button" class="star-picker-btn" data-star="4" aria-label="4 étoiles">★</button>
+              <button type="button" class="star-picker-btn" data-star="5" aria-label="5 étoiles">★</button>
+            </div>
+            <input type="hidden" id="review-stars-value" name="stars" value="5" required>
+          </div>
+          <div class="review-field">
+            <label class="review-field-label" for="review-comment">Commentaire</label>
+            <textarea id="review-comment" name="comment" required></textarea>
+          </div>
+          <div class="review-field review-photo-upload">
+            <span class="review-field-label">Photos (1–5)</span>
+            <input type="file" class="review-photo-input file-upload-input" id="review-picture" accept="image/*" multiple>
+            <label class="review-photo-label file-upload-btn" id="review-photo-label" for="review-picture">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              Choisir des fichiers
+            </label>
+            <p class="review-photo-hint" id="review-photo-hint">0 / 5 photos (minimum 1)</p>
+            <div class="review-photo-previews" id="review-photo-previews"></div>
+          </div>
+        </div>
+        <div class="review-half-actions">
+          <button type="submit" class="primary-btn">Soumettre pour approbation</button>
+          <button type="button" class="back-btn" id="review-add-cancel">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<div class="review-half-page" id="play-form-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="play-form-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="play-form-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="play-form-title">Ajouter</h2>
+      <button type="button" class="review-half-close" id="play-form-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body" id="play-form-body"></div>
+  </aside>
+</div>
+
+<div class="review-half-page" id="product-form-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="product-form-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="product-form-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="product-form-title">Ajouter un produit</h2>
+      <button type="button" class="review-half-close" id="product-form-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body" id="product-form-body"></div>
+  </aside>
+</div>
+
+<div class="review-half-page" id="grossiste-form-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="grossiste-form-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="grossiste-form-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="grossiste-form-title">Ajouter un catalogue</h2>
+      <button type="button" class="review-half-close" id="grossiste-form-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body" id="grossiste-form-body"></div>
+  </aside>
+</div>
+
+<div class="review-half-page" id="users-form-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="users-form-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="users-form-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="users-form-title">Ajouter un utilisateur</h2>
+      <button type="button" class="review-half-close" id="users-form-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body" id="users-form-body"></div>
+  </aside>
+</div>
+
+<div class="review-half-page" id="stores-form-page" aria-hidden="true">
+  <div class="review-half-backdrop" id="stores-form-backdrop"></div>
+  <aside class="review-half-panel" role="dialog" aria-labelledby="stores-form-title" aria-modal="true">
+    <div class="review-half-head">
+      <h2 class="review-half-title" id="stores-form-title">Ajouter un magasin</h2>
+      <button type="button" class="review-half-close" id="stores-form-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="review-half-body" id="stores-form-body"></div>
+  </aside>
+</div>

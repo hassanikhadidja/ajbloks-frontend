@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AJBloks — Next.js storefront + API
 
-## Getting Started
+Full-stack toy store with a legacy HTML UI migrated to Next.js and a MongoDB API layer.
 
-First, run the development server:
+## Setup
+
+1. Copy environment variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Fill in MongoDB (`uri`), JWT (`secretKey`), and Cloudinary credentials.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install and run:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+## API (`/api/*`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The Next.js app serves all backend routes under `/api`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Area | Endpoints |
+|------|-----------|
+| **Auth** | `POST /api/user/register`, `POST /api/user/login`, `GET /api/user/getcurrentuser` |
+| **Users** | `GET /api/user` (admin), `PATCH/DELETE /api/user/[id]` |
+| **Products** | `GET/POST /api/product`, `GET/PATCH/DELETE /api/product/[id]` |
+| **Orders** | `POST /api/order`, `GET /api/order/config`, `GET /api/order/mine`, `GET /api/order/track`, admin CRUD on `/api/order/[id]` |
+| **Reviews** | `GET/POST /api/review`, `PATCH/DELETE /api/review/[id]` |
+| **Stores** | `GET/POST /api/store`, `PATCH/DELETE /api/store/[id]` |
+| **Catalogues** | `GET/POST /api/catalogue`, `PATCH/DELETE /api/catalogue/[id]` |
+| **Play content** | `GET/POST /api/play`, `PATCH/DELETE /api/play/[id]` |
+| **Settings** | `GET/PUT /api/settings/promo-bar` |
 
-## Deploy on Vercel
+JWT is sent as `Authorization: Bearer <token>` (stored in `localStorage` by `public/legacy/api-client.js`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Dashboard CMS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The admin dashboard at `/dashboard` uses `dashboard-admin.js` + `dashboard-integration.js` to sync Products, Users, Stores, Catalogues, Play content, Reviews, and promo bar settings with MongoDB.
+
+Create an admin user directly in MongoDB (`role: "admin"`) or register then update the role in the database.
+
+## Standalone Express backend
+
+`BACKEND-DEPLOY-main/` mirrors the same API at `/api/*` (and legacy paths without prefix) for Netlify/serverless deployment. Use the same environment variables.
+
+```bash
+cd BACKEND-DEPLOY-main
+npm install
+npm run dev
+```
+
+## Product model
+
+Products support both storefront fields (`sku`, `stock`, `category`, `img`) and dashboard CMS fields (`articles`, `whyLoveIt`, `qa`, `pictures`, `isBook`, etc.). The `lib/product-mapper.ts` module maps between dashboard and database shapes.

@@ -1,0 +1,332 @@
+/* Laptop product carousels — 4 cards per row, 310×491, arrow controls */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  .carousel-row--paged {
+    position: relative;
+    padding-left: 52px;
+    padding-right: 52px;
+    min-height: 491px;
+  }
+
+  .carousel-row--paged .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    max-width: calc(310px * 4 + 14px * 3);
+    margin: 0 auto;
+  }
+
+  .carousel-row--paged #productTrack,
+  .carousel-row--paged #bookTrack,
+  .carousel-row--paged #relatedTrack,
+  .carousel-row--paged .carousel-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    align-items: stretch !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 0 6px;
+    margin: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-row--paged #productTrack::-webkit-scrollbar,
+  .carousel-row--paged #bookTrack::-webkit-scrollbar,
+  .carousel-row--paged #relatedTrack::-webkit-scrollbar,
+  .carousel-row--paged .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-row--paged #productTrack .product-card,
+  .carousel-row--paged #bookTrack .product-card,
+  .carousel-row--paged #relatedTrack .product-card,
+  .carousel-row--paged .carousel-track .product-card {
+    flex: 0 0 310px !important;
+    width: 310px !important;
+    min-width: 310px !important;
+    max-width: 310px !important;
+    height: 491px !important;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .carousel-row--paged .product-card .img-wrap {
+    width: 100%;
+    height: 260px;
+    flex: none;
+    margin-bottom: 12px;
+  }
+
+  .carousel-row--paged .product-card .product-title {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .carousel-row--paged + .scroll-track,
+  .carousel-wrap .carousel-row--paged ~ .scroll-track,
+  .age-section .carousel-row--paged ~ .scroll-track {
+    display: none;
+  }
+
+  .carousel-row--paged + .progress-rail,
+  .carousel-wrap .carousel-row--paged ~ .progress-rail {
+    display: none;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #004ebc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 78, 188, 0.35);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .carousel-arrow:hover,
+  .carousel-arrow:focus-visible {
+    background: #003894;
+  }
+
+  .carousel-arrow:active {
+    transform: translateY(-50%) scale(0.96);
+  }
+
+  .carousel-arrow svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .carousel-arrow--prev {
+    left: 4px;
+  }
+
+  .carousel-arrow--next {
+    right: 4px;
+  }
+
+  .carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Tile carousels — 6 per row, 200×263 */
+  .carousel-row--tiles {
+    position: relative;
+    padding-left: 52px;
+    padding-right: 52px;
+    min-height: 263px;
+  }
+
+  .carousel-row--tiles .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    max-width: calc(200px * 6 + 14px * 5);
+    margin: 0 auto;
+  }
+
+  .carousel-row--tiles #categoryTrack,
+  .carousel-row--tiles #brandTrack,
+  .carousel-row--tiles #marqueTrack,
+  .carousel-row--tiles #storyAgeTrack,
+  .carousel-row--tiles #storyCategoryTrack,
+  .carousel-row--tiles #storyCharacterTrack {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    align-items: stretch !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+    margin: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-row--tiles #categoryTrack::-webkit-scrollbar,
+  .carousel-row--tiles #brandTrack::-webkit-scrollbar,
+  .carousel-row--tiles #marqueTrack::-webkit-scrollbar,
+  .carousel-row--tiles #storyAgeTrack::-webkit-scrollbar,
+  .carousel-row--tiles #storyCategoryTrack::-webkit-scrollbar,
+  .carousel-row--tiles #storyCharacterTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-row--tiles .tile-card {
+    flex: 0 0 200px !important;
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    height: 263px !important;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    gap: 8px;
+  }
+
+  .carousel-row--tiles .tile-img {
+    width: 200px !important;
+    height: 200px !important;
+    flex: none;
+    border-radius: 18px;
+    font-size: 3rem;
+  }
+
+  .carousel-row--tiles .tile-label {
+    flex: 1;
+    min-height: 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #categorySection .carousel-row--tiles + .progress-rail,
+  #brandSection .carousel-row--tiles + .progress-rail,
+  #marqueSection .carousel-row--tiles + .progress-rail {
+    display: none;
+  }
+
+  /* Video carousel — 300×483, selected 300×595 */
+  .carousel-row--videos {
+    position: relative;
+    padding-left: 52px;
+    padding-right: 52px;
+    min-height: 595px;
+  }
+
+  .carousel-row--videos .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    max-width: calc(300px * 5 + 14px * 4);
+    margin: 0 auto;
+  }
+
+  .carousel-row--videos #videoTrack {
+    --video-card-w: 300px;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    align-items: flex-end !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-left: calc(50% - var(--video-card-w) / 2) !important;
+    padding-right: calc(50% - var(--video-card-w) / 2) !important;
+    scroll-padding-inline: calc(50% - var(--video-card-w) / 2);
+    margin: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-row--videos #videoTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-row--videos .video-card {
+    flex: 0 0 300px !important;
+    width: 300px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+    height: 483px;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.25s ease;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .carousel-row--videos .video-card.is-selected,
+  .carousel-row--videos .video-card.is-expanded {
+    height: 595px;
+  }
+
+  .carousel-row--videos .video-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .carousel-row--videos .video-thumb {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+  }
+
+  .carousel-row--videos .video-meta {
+    flex: none;
+  }
+
+  .carousel-row--videos .video-products {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .follow-section .carousel-row--videos + .progress-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .carousel-arrow {
+    display: none !important;
+  }
+}
+
+/* 800–1150 + laptop: full-bleed product image 202.5 tall, title tight above price */
+@media (min-width: 800px) and (max-width: 1150px), (min-width: 1400px) {
+  .carousel-row--paged .product-card .img-wrap,
+  .product-card .img-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    height: 202.5px !important;
+    flex: 0 0 202.5px !important;
+    margin: 0 0 8px !important;
+    overflow: hidden;
+  }
+
+  .carousel-row--paged .product-card .img-wrap img,
+  .product-card .img-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-card .product-title {
+    flex: none;
+  }
+
+  .product-card .product-title + .product-price,
+  .product-card .product-title + .price {
+    margin-top: 0;
+  }
+}

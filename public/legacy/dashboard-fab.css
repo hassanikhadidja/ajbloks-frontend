@@ -1,0 +1,27 @@
+.dashboard-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFC107;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(255, 193, 7, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.dashboard-fab:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 22px rgba(255, 193, 7, 0.5);
+  color: #1a1a1a;
+}
+.dashboard-fab svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}

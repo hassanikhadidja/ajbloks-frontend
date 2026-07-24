@@ -1,0 +1,332 @@
+/* Mon compte — laptop content (800–1200 + 1400+); tablet nav until 1400 */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  body.account-page {
+    background: #fff;
+    align-items: stretch;
+  }
+
+  body.account-page.diy-page {
+    background: #fff;
+  }
+
+  body.account-page.diy-page .app-shell {
+    background: #fff;
+    overflow-x: clip;
+  }
+
+  body.account-page.diy-page .phone {
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+    background: #fff;
+    min-height: auto;
+    overflow-x: clip;
+  }
+
+  body.account-page.diy-page .account-content,
+  body.account-page.diy-page .diy-content.account-content {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px clamp(20px, 3vw, 40px) 56px;
+    box-sizing: border-box;
+    background: #fff;
+    min-height: calc(100vh - 120px);
+    min-height: calc(100dvh - 120px);
+    overflow-x: clip;
+  }
+
+  body.account-page .account-mobile-header {
+    display: none;
+  }
+
+  body.account-page .account-mobile-footer {
+    display: none;
+  }
+
+  body.account-page .account-page-title {
+    display: block;
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+    font-weight: 800;
+    color: #11214a;
+    margin: 0 0 24px;
+    line-height: 1.15;
+  }
+
+  body.account-page .account-layout {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 48px);
+    align-items: start;
+    width: 100%;
+  }
+
+  body.account-page .tab-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+    max-width: none;
+    background: transparent;
+    padding: 0;
+    position: sticky;
+    top: 24px;
+  }
+
+  body.account-page .tab-btn {
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border-bottom: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5b6685;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  body.account-page .tab-btn:hover {
+    background: #f4f6fb;
+    color: #11214a;
+  }
+
+  body.account-page .tab-btn.active {
+    background: #e7ebfb;
+    color: #004ebc;
+    font-weight: 800;
+    border-bottom: none;
+  }
+
+  body.account-page .account-panel {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.account-page main,
+  body.account-page .account-panel main {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    gap: 20px;
+  }
+
+  body.account-page .view.active {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  body.account-page .welcome-card,
+  body.account-page .kids-club-section,
+  body.account-page .info-card,
+  body.account-page .signout-card {
+    border-radius: 18px;
+  }
+
+  body.account-page .welcome-card {
+    padding: 24px 28px;
+    gap: 16px;
+  }
+
+  body.account-page .welcome-text h2 {
+    font-size: 1.5rem;
+    color: #11214a;
+  }
+
+  body.account-page .welcome-text p {
+    font-size: 1.05rem;
+  }
+
+  body.account-page .kids-club-section {
+    padding-bottom: 4px;
+  }
+
+  body.account-page .kids-club-main {
+    padding: 18px 28px 28px;
+  }
+
+  body.account-page .kids-club-card-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  body.account-page .kids-club-promo-message {
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  body.account-page .order-row {
+    padding: 16px 28px;
+  }
+
+  body.account-page .order-product {
+    white-space: normal;
+  }
+
+  body.account-page .profile-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  body.account-page .profile-section > div:has(.pref-row),
+  body.account-page .profile-section > .signout-card {
+    grid-column: 1 / -1;
+  }
+
+  body.account-page .section-header h3 {
+    font-size: 1.1rem;
+    color: #11214a;
+  }
+
+  body.account-page .info-row,
+  body.account-page .pref-row,
+  body.account-page .empty-row {
+    padding: 18px 24px;
+  }
+
+  body.account-page .info-label {
+    color: #8a94ad;
+  }
+
+  body.account-page .info-value {
+    font-size: 15px;
+    max-width: 60%;
+  }
+
+  html,
+  body.account-page.diy-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.account-page.diy-page .app-shell > .promo-bar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #bfeafb !important;
+    text-align: left;
+    padding: 8px var(--chrome-pad-x, 24px) !important;
+    margin: 0;
+  }
+
+  body.account-page.diy-page .app-shell > .promo-bar .promo-bar-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.account-page.diy-page .app-shell > .promo-bar .promo-bar-utils {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    flex-shrink: 0;
+  }
+}
+
+/* Compact laptop / large tablet landscape (800–1150) */
+@media (min-width: 800px) and (max-width: 1150px) {
+  body.account-page.diy-page .account-content,
+  body.account-page.diy-page .diy-content.account-content {
+    padding: 24px 20px 48px;
+  }
+
+  body.account-page .account-page-title {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+
+  body.account-page .account-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  body.account-page .tab-btn {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
+  body.account-page .welcome-card {
+    padding: 20px 22px;
+  }
+
+  body.account-page .welcome-text h2 {
+    font-size: 1.35rem;
+  }
+
+  body.account-page .kids-club-main {
+    padding: 16px 20px 24px;
+  }
+
+  body.account-page .kids-club-card-wrap {
+    max-width: 440px;
+  }
+
+  body.account-page .order-row {
+    padding: 14px 18px;
+  }
+
+  body.account-page .profile-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.account-page .info-value {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 1400px) {
+  body.account-page #mainNav.nav {
+    max-width: none;
+    width: 100%;
+    background: #004ebc;
+    border-bottom: none;
+  }
+
+  body.account-page #mainNav .logo img {
+    transform: none;
+    max-width: none;
+  }
+
+  body.account-page.diy-page .app-shell > #mainNav.nav,
+  body.account-page.diy-page .app-shell > header#mainNav.nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px var(--chrome-pad-x) 16px !important;
+    background: #004ebc !important;
+    gap: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 799px), (min-width: 1201px) and (max-width: 1399px) {
+  body.account-page .account-page-title {
+    display: none;
+  }
+
+  body.account-page .promo-bar,
+  body.account-page #mainNav,
+  body.account-page footer.site-footer {
+    display: none !important;
+  }
+
+  body.account-page.diy-page .phone {
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-shadow: none;
+  }
+
+  body.account-page.diy-page .app-shell {
+    background: #f0efed;
+  }
+}

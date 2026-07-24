@@ -1,0 +1,14 @@
+/* Canonical layout breakpoints — reference only (not imported globally)
+ *
+ * Phone:           < 500px
+ * Tablet content:  500px – 799px  (pages-tablet.css)
+ * Hybrid / laptop content: 800px – 1200px  (page layout like 1400px+; navbar like tablet)
+ * Medium:          1201px – 1399px
+ * Full laptop:     1400px+
+ *
+ * LAPTOP_CONTENT:  @media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px)
+ * TABLET_CONTENT:  @media (min-width: 500px) and (max-width: 799px) — pages-tablet.css
+ * TABLET_NAV:      @media (min-width: 800px) and (max-width: 1399px)
+ * LAPTOP_NAV:      @media (min-width: 1400px)
+ * LAPTOP_CHROME:   promobar only — same as LAPTOP_CONTENT
+ */

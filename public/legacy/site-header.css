@@ -1,0 +1,574 @@
+/* Promo bar — mobile: centered message only */
+.promo-bar {
+  text-align: center;
+}
+
+.promo-bar-inner {
+  display: block;
+}
+
+.promo-bar-msg {
+  margin: 0;
+}
+
+.promo-bar-utils {
+  display: none;
+}
+
+.promo-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(0.72rem, 1.5vw, 0.85rem);
+  white-space: nowrap;
+}
+
+.promo-bar-link svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.promo-bar-link:hover {
+  opacity: 0.75;
+}
+
+/* Desktop nav — hidden below 1400px */
+.desktop-nav {
+  display: none;
+}
+
+.nav-left {
+  display: contents;
+}
+
+.nav-util-label {
+  display: none;
+}
+
+.nav-mascot {
+  display: none;
+}
+
+.nav-util-email {
+  display: none;
+}
+
+@media (max-width: 1399px) {
+  .nav-util-link.nav-util-email {
+    display: none !important;
+  }
+
+  .nav-icons .nav-util-label {
+    display: none !important;
+  }
+
+  .nav-icons .nav-util-link {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    padding: 0;
+    gap: 0;
+  }
+}
+
+/* ---------- promo bar (800px+ — tablet & laptop) ---------- */
+@media (min-width: 800px) {
+  .app-shell > .promo-bar,
+  body.diy-page .app-shell > .promo-bar,
+  body.toys-action-page .site-chrome > .promo-bar {
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .app-shell > .promo-bar .promo-bar-inner,
+  body.diy-page .app-shell > .promo-bar .promo-bar-inner,
+  body.toys-action-page .site-chrome > .promo-bar .promo-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .app-shell > .promo-bar .promo-bar-utils,
+  body.diy-page .app-shell > .promo-bar .promo-bar-utils,
+  body.toys-action-page .site-chrome > .promo-bar .promo-bar-utils {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- tablet nav (800–1399px): compact centered nav ---------- */
+@media (min-width: 800px) and (max-width: 1399px) {
+  header#mainNav.nav,
+  #mainNav.nav {
+    padding: 12px clamp(24px, 3vw, 40px) 14px;
+  }
+
+  header#mainNav .nav-default,
+  #mainNav .nav-default {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px !important;
+    width: 100%;
+  }
+
+  header#mainNav .nav-left,
+  #mainNav .nav-left {
+    display: contents;
+  }
+
+  header#mainNav .nav-menu-btn,
+  header#mainNav #menuOpenBtn,
+  #mainNav .nav-menu-btn,
+  #mainNav #menuOpenBtn {
+    display: flex !important;
+  }
+
+  header#mainNav .nav-left > .nav-icons,
+  #mainNav .nav-left > .nav-icons,
+  header#mainNav .nav-default > .nav-icons:not(.nav-utils),
+  #mainNav .nav-default > .nav-icons:not(.nav-utils) {
+    display: flex !important;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  header#mainNav .desktop-nav,
+  #mainNav .desktop-nav {
+    display: none !important;
+  }
+
+  header#mainNav .nav-mascot,
+  #mainNav .nav-mascot {
+    display: none !important;
+  }
+
+  header#mainNav .logo,
+  #mainNav .logo {
+    flex: 1 !important;
+    justify-content: center !important;
+    min-width: 0;
+  }
+
+  header#mainNav .logo img,
+  #mainNav .logo img {
+    height: clamp(52px, 5.5vw, 64px);
+    max-width: min(320px, 52vw);
+    transform: scale(1.2);
+    transform-origin: center center;
+  }
+
+  header#mainNav .nav-icons.nav-utils,
+  #mainNav .nav-icons.nav-utils {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(4px, 1vw, 12px);
+    flex-shrink: 0;
+  }
+
+  header#mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  header#mainNav .nav-icons.nav-utils a.nav-util-link,
+  header#mainNav .nav-icons.nav-utils button.nav-util-link,
+  #mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  #mainNav .nav-icons.nav-utils a.nav-util-link,
+  #mainNav .nav-icons.nav-utils button.nav-util-link {
+    display: inline-flex !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    padding: 0 !important;
+    border-radius: 50%;
+  }
+
+  header#mainNav .nav-icons.nav-utils .nav-util-link .nav-icon,
+  #mainNav .nav-icons.nav-utils .nav-util-link .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  header#mainNav .nav-util-link.nav-util-email,
+  #mainNav .nav-util-link.nav-util-email {
+    display: none !important;
+  }
+
+  header#mainNav .nav-util-link:hover,
+  header#mainNav .nav-util-link:focus-visible,
+  #mainNav .nav-util-link:hover,
+  #mainNav .nav-util-link:focus-visible {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-icons.nav-utils > .icon-btn:not(.nav-util-link) {
+    display: inline-flex;
+  }
+}
+
+/* ---------- laptop header (1400px+) ---------- */
+@media (min-width: 1400px) {
+  :root {
+    --chrome-inner-max: 1300px;
+    --chrome-pad-x: max(16px, calc(50% - 650px));
+  }
+
+  header#mainNav.nav,
+  #mainNav.nav,
+  body.diy-page .app-shell > header#mainNav.nav,
+  body.diy-page .app-shell > #mainNav.nav,
+  .site-chrome > header#mainNav.nav,
+  .site-chrome > #mainNav.nav {
+    padding: 14px var(--chrome-pad-x) 16px !important;
+    background: #004ebc !important;
+    gap: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+    box-sizing: border-box;
+  }
+
+  header#mainNav .nav-default,
+  #mainNav .nav-default {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px !important;
+    width: 100%;
+    max-width: var(--chrome-inner-max);
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  header#mainNav .nav-search,
+  #mainNav .nav-search {
+    width: 100%;
+    max-width: var(--chrome-inner-max);
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  header#mainNav .nav-left,
+  #mainNav .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  header#mainNav .nav-menu-btn,
+  header#mainNav #menuOpenBtn,
+  #mainNav .nav-menu-btn,
+  #mainNav #menuOpenBtn {
+    display: none !important;
+  }
+
+  header#mainNav .nav-left > .nav-icons,
+  #mainNav .nav-left > .nav-icons {
+    display: none !important;
+  }
+
+  header#mainNav .nav-mascot,
+  #mainNav .nav-mascot {
+    display: block;
+    height: clamp(48px, 5vw, 68px);
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transform: translateY(59px) scale(3);
+    transform-origin: left center;
+    position: relative;
+    z-index: 2;
+    margin-left: -67px;
+    margin-right: 40px;
+  }
+
+  header#mainNav .logo,
+  #mainNav .logo {
+    flex: 0 0 auto !important;
+    justify-content: flex-start !important;
+    margin-right: 0;
+  }
+
+  header#mainNav .logo img,
+  #mainNav .logo img {
+    transform: none;
+    height: clamp(44px, 3.2vw, 56px);
+  }
+
+  header#mainNav .desktop-nav,
+  #mainNav .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.4vw, 24px);
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: visible;
+    padding-left: clamp(24px, 2.5vw, 40px);
+    margin-left: 0;
+  }
+
+  header#mainNav .desktop-nav a,
+  header#mainNav .desktop-nav .desktop-nav-trigger,
+  #mainNav .desktop-nav a,
+  #mainNav .desktop-nav .desktop-nav-trigger {
+    color: #fff;
+    font-family: 'Buenos Aires', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.82rem, 1.05vw, 1rem);
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  header#mainNav .desktop-nav .desktop-nav-trigger,
+  #mainNav .desktop-nav .desktop-nav-trigger {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  header#mainNav .desktop-nav a:hover,
+  header#mainNav .desktop-nav a:focus-visible,
+  header#mainNav .desktop-nav .desktop-nav-trigger:hover,
+  header#mainNav .desktop-nav .desktop-nav-trigger:focus-visible,
+  #mainNav .desktop-nav a:hover,
+  #mainNav .desktop-nav a:focus-visible,
+  #mainNav .desktop-nav .desktop-nav-trigger:hover,
+  #mainNav .desktop-nav .desktop-nav-trigger:focus-visible {
+    opacity: 0.82;
+  }
+
+  header#mainNav .desktop-nav .desktop-nav-trigger.is-active,
+  #mainNav .desktop-nav .desktop-nav-trigger.is-active {
+    opacity: 1;
+    text-decoration: underline;
+    text-decoration-color: #fff;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px;
+  }
+
+  header#mainNav .nav-icons.nav-utils,
+  #mainNav .nav-icons.nav-utils {
+    flex: 0 0 auto;
+    gap: clamp(4px, 0.75vw, 14px);
+  }
+
+  header#mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  header#mainNav .nav-icons.nav-utils a.nav-util-link,
+  #mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  #mainNav .nav-icons.nav-utils a.nav-util-link {
+    display: inline-flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding: 6px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Buenos Aires', sans-serif;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  header#mainNav .nav-icons.nav-utils .nav-util-label,
+  #mainNav .nav-icons.nav-utils .nav-util-label {
+    display: inline !important;
+    visibility: visible !important;
+    color: #fff;
+    font-family: 'Buenos Aires', sans-serif;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  header#mainNav .nav-util-link:hover,
+  header#mainNav .nav-util-link:focus-visible,
+  #mainNav .nav-util-link:hover,
+  #mainNav .nav-util-link:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  header#mainNav .nav-icons.nav-utils .nav-util-link .nav-icon,
+  #mainNav .nav-icons.nav-utils .nav-util-link .nav-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  header#mainNav .nav-icons.nav-utils .nav-util-email,
+  #mainNav .nav-icons.nav-utils .nav-util-email {
+    display: inline-flex !important;
+  }
+
+  .nav-icons.nav-utils > .icon-btn:not(.nav-util-link) {
+    display: none;
+  }
+}
+
+/* Nav search overlay — must override laptop nav-default flex */
+header#mainNav.is-search-active .nav-default,
+#mainNav.is-search-active .nav-default {
+  display: none !important;
+}
+
+header#mainNav.is-search-active .nav-search,
+#mainNav.is-search-active .nav-search {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+/* Override per-page inline nav styles — promobar on hybrid + laptop */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  :root {
+    --chrome-inner-max: 1300px;
+    --chrome-pad-x: max(16px, calc(50% - 650px));
+  }
+
+  .app-shell > .promo-bar,
+  .site-chrome > .promo-bar,
+  .app-shell > #mainNav.nav,
+  .app-shell > header#mainNav.nav,
+  .site-chrome > #mainNav.nav,
+  .site-chrome > header#mainNav.nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .app-shell > .promo-bar,
+  body.diy-page .app-shell > .promo-bar,
+  body.toys-action-page .site-chrome > .promo-bar,
+  .site-chrome > .promo-bar {
+    background: #bfeafb;
+    padding: 8px var(--chrome-pad-x);
+    margin: 0;
+    text-align: left;
+  }
+
+  .app-shell > .promo-bar .promo-bar-inner,
+  body.diy-page .app-shell > .promo-bar .promo-bar-inner,
+  body.toys-action-page .site-chrome > .promo-bar .promo-bar-inner,
+  .site-chrome > .promo-bar .promo-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(12px, 2vw, 24px);
+    width: 100%;
+    max-width: var(--chrome-inner-max);
+    margin: 0 auto;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .app-shell > .promo-bar .promo-bar-msg,
+  body.diy-page .app-shell > .promo-bar .promo-bar-msg,
+  .site-chrome > .promo-bar .promo-bar-msg {
+    margin: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .app-shell > .promo-bar .promo-bar-utils,
+  body.diy-page .app-shell > .promo-bar .promo-bar-utils,
+  body.toys-action-page .site-chrome > .promo-bar .promo-bar-utils,
+  .site-chrome > .promo-bar .promo-bar-utils {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.8vw, 28px);
+    flex: 0 0 auto;
+  }
+}
+
+/* Laptop navbar only (1400px+) */
+@media (min-width: 1400px) {
+  .app-shell > #mainNav .logo img,
+  .app-shell > header#mainNav .logo img,
+  .site-chrome > #mainNav .logo img,
+  .site-chrome > header#mainNav .logo img {
+    transform: none !important;
+    max-width: none !important;
+  }
+
+  .app-shell > #mainNav .nav-default,
+  .app-shell > header#mainNav .nav-default,
+  .site-chrome > #mainNav .nav-default,
+  .site-chrome > header#mainNav .nav-default {
+    gap: 20px !important;
+  }
+}
+
+/* Tighter laptop header (1400–1680px) — keep nav labels readable */
+@media (min-width: 1400px) and (max-width: 1680px) {
+  header#mainNav .nav-mascot,
+  #mainNav .nav-mascot {
+    transform: translateY(61px) scale(2.65);
+    margin-left: -73px;
+    margin-right: 40px;
+    margin-top: -20px;
+  }
+
+  header#mainNav .desktop-nav,
+  #mainNav .desktop-nav {
+    gap: clamp(8px, 1vw, 18px);
+    padding-left: clamp(20px, 2vw, 32px);
+  }
+
+  header#mainNav .desktop-nav a,
+  header#mainNav .desktop-nav .desktop-nav-trigger,
+  #mainNav .desktop-nav a,
+  #mainNav .desktop-nav .desktop-nav-trigger {
+    font-size: clamp(0.78rem, 0.92vw, 0.94rem);
+  }
+
+  header#mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  header#mainNav .nav-icons.nav-utils a.nav-util-link,
+  #mainNav .nav-icons.nav-utils .icon-btn.nav-util-link,
+  #mainNav .nav-icons.nav-utils a.nav-util-link {
+    padding: 6px 8px;
+    font-size: clamp(0.74rem, 0.88vw, 0.88rem);
+  }
+
+  header#mainNav .nav-icons.nav-utils .nav-util-label,
+  #mainNav .nav-icons.nav-utils .nav-util-label {
+    font-size: clamp(0.74rem, 0.88vw, 0.88rem);
+  }
+}

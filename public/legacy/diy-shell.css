@@ -1,0 +1,156 @@
+@import url(https://db.onlinewebfonts.com/c/1b62cb414d23538e8a465e7f50aa7932?family=Buenos+Aires);
+@import url('site-footer.css');
+@import url('site-menu.css');
+@import url('diy-tablet.css');
+@import url('diy-laptop.css');
+
+:root {
+  --blue: #004ebc;
+  --blue-dark: #003894;
+  --ink: #1a1a1a;
+  --cream: #FFFDF8;
+  --page-pad: 16px;
+  --radius-pill: 999px;
+}
+
+html, body { margin: 0; padding: 0; }
+
+body.diy-page {
+  font-family: 'Buenos Aires', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background: #DEE3F0;
+  color: var(--ink);
+  overflow-x: clip;
+}
+
+button, a { font-family: inherit; }
+button { cursor: pointer; border: none; }
+
+.app-shell {
+  max-width: var(--shell-max, 100%);
+  width: 100%;
+  margin: 0 auto;
+  background: var(--cream);
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.promo-bar {
+  background: #BFEAFB;
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+  font-size: clamp(.75rem, 2.5vw, .88rem);
+  padding: 9px var(--page-pad);
+}
+
+.nav {
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--page-pad) 12px;
+  gap: 4px;
+  overflow: visible;
+}
+
+.nav-icons { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+
+.icon-btn {
+  background: transparent;
+  color: #fff;
+  width: 35px; height: 35px;
+  min-width: 35px; min-height: 35px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%; padding: 0; cursor: pointer;
+  text-decoration: none;
+}
+
+.icon-btn:active { background: rgba(255, 255, 255, .15); }
+
+.icon-btn .nav-icon {
+  width: 22px; height: 22px;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+.logo img {
+  height: clamp(47px, 12.6vw, 61px);
+  width: auto;
+  max-width: min(288px, 94vw);
+  object-fit: contain;
+  display: block;
+  transform: scale(1.25);
+  transform-origin: center center;
+}
+
+.nav-default {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 4px;
+}
+
+.nav-search {
+  display: none;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.nav.is-search-active .nav-default { display: none; }
+.nav.is-search-active .nav-search { display: flex; }
+
+.search-form { flex: 1; min-width: 0; }
+
+.search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Buenos Aires', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.search-input::placeholder { color: var(--ink); opacity: .55; }
+.search-close .nav-icon { width: 24px; height: 24px; stroke-width: 2; }
+
+.phone {
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 120px);
+  background: #fff;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+@media (min-width: 481px) {
+  .phone { box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); }
+}
+
+@media (min-width: 900px) {
+  .phone {
+    max-width: none;
+    box-shadow: none;
+  }
+}

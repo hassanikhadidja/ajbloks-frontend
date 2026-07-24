@@ -1,0 +1,145 @@
+.share-backdrop {
+  position: fixed;
+  inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: rgba(10, 12, 24, .5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s;
+  z-index: 140;
+}
+
+.share-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.share-drawer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 141;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  transform: translateX(-50%) translateY(100%);
+  transition: transform .32s cubic-bezier(.32, .9, .3, 1);
+  padding: 10px 18px 22px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, .18);
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.share-drawer.open {
+  transform: translateX(-50%) translateY(0);
+}
+
+.share-drawer-handle {
+  width: 40px;
+  height: 4px;
+  background: #e6e6e6;
+  border-radius: 4px;
+  margin: 4px auto 14px;
+}
+
+.share-drawer-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.share-drawer-header h3 {
+  grid-column: 2;
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+  font-family: 'Buenos Aires', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+.share-drawer-close {
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 10px;
+  background: #f4f4f4;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.share-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px 18px;
+  padding: 6px 0 18px;
+}
+
+.share-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: #1a1a1a;
+  font-family: 'Buenos Aires', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 56px;
+}
+
+.share-item:active {
+  opacity: .7;
+}
+
+.share-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+}
+
+.share-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translate(-50%, 12px);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  z-index: 150;
+  pointer-events: none;
+  max-width: calc(100% - 32px);
+  text-align: center;
+}
+
+.share-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

@@ -1,0 +1,210 @@
+.article-newsletter {
+  width: 396px;
+  max-width: calc(100% - 32px);
+  height: 408px;
+  margin: 32px auto 16px;
+  box-sizing: border-box;
+  background: #f9d71c url('https://res.cloudinary.com/dbtkfjrvd/image/upload/v1782387226/Design_sans_titre_45_gvq5yl.png') no-repeat center bottom / cover;
+  border-radius: 18px;
+  padding: 28px 20px 24px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.article-newsletter h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
+
+.article-newsletter-intro {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.article-newsletter .signup-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 70px;
+}
+
+.article-newsletter .signup-row input[type="email"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 70px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  font-family: 'Buenos Aires', sans-serif;
+  color: #333;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.article-newsletter .signup-row input[type="email"]::placeholder { color: #6b6b6b; }
+
+.article-newsletter .signup-row input[type="email"]:focus {
+  outline: 2px solid #004ebc;
+  outline-offset: 1px;
+}
+
+.article-newsletter .signup-row button {
+  width: 89px;
+  height: 70px;
+  flex: 0 0 89px;
+  padding: 0;
+  border-radius: 10px;
+  border: 2px solid #004ebc;
+  background: transparent;
+  color: #004ebc;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Buenos Aires', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: background .15s ease, color .15s ease;
+}
+
+.article-newsletter .signup-row button:hover,
+.article-newsletter .signup-row button:focus-visible {
+  background: #004ebc;
+  color: #fff;
+}
+
+.article-newsletter .signup-disclaimer {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  color: #333;
+}
+
+.article-newsletter .signup-disclaimer a {
+  color: #333;
+  text-decoration: underline;
+}
+
+.article-newsletter .signup-confirm {
+  font-size: 14px;
+  margin: 8px 0 0;
+  min-height: 0;
+  color: #333;
+}
+
+/* ── Laptop — same banner as DIY activity detail page ── */
+@media (min-width: 1024px) {
+  .article-newsletter,
+  .diy-listing-newsletter {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 260px;
+    margin: 40px 0 24px;
+    padding: 36px 40px 32px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: #f9d71c url('https://res.cloudinary.com/dbtkfjrvd/image/upload/v1782755670/Design_sans_titre_79_fgpbaz.png') no-repeat center right / cover;
+  }
+
+  .article-newsletter h2,
+  .diy-listing-newsletter h2 {
+    font-size: 32px;
+    max-width: 520px;
+  }
+
+  .article-newsletter-intro,
+  .diy-listing-newsletter-intro {
+    font-size: 17px;
+    max-width: 480px;
+    margin-bottom: 22px;
+  }
+
+  .article-newsletter .signup-row,
+  .diy-listing-newsletter .signup-row {
+    max-width: 520px;
+    height: 56px;
+    flex-wrap: nowrap;
+  }
+
+  .article-newsletter .signup-row input[type="email"],
+  .diy-listing-newsletter .signup-row input[type="email"] {
+    height: 56px;
+    font-size: 16px;
+    padding: 0 16px;
+  }
+
+  .article-newsletter .signup-row button,
+  .diy-listing-newsletter .signup-row button {
+    height: 56px;
+    width: 110px;
+    flex: 0 0 110px;
+    font-size: 16px;
+    background: #004ebc;
+    color: #fff;
+    border: 2px solid #004ebc;
+  }
+
+  .article-newsletter .signup-row button:hover,
+  .article-newsletter .signup-row button:focus-visible,
+  .diy-listing-newsletter .signup-row button:hover,
+  .diy-listing-newsletter .signup-row button:focus-visible {
+    background: #003894;
+    border-color: #003894;
+    color: #fff;
+  }
+
+  .article-newsletter .signup-disclaimer,
+  .diy-listing-newsletter .signup-disclaimer {
+    max-width: 520px;
+    font-size: 14px;
+  }
+}
+
+/* Circle brand logo — light surfaces (blue border) & dark/video (white border) */
+.brand-row .r-logo,
+.video-overlay-info .v-logo {
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.brand-row .r-logo {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #004ebc;
+}
+
+.video-overlay-info .v-logo {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+}
+
+.brand-row .r-logo img,
+.video-overlay-info .v-logo img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  display: block;
+}

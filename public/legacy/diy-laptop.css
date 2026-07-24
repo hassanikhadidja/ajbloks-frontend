@@ -1,0 +1,212 @@
+/* DIY pages — laptop layout (listing, tag, article) */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  body.diy-page {
+    background: #fff;
+  }
+
+  body.diy-page .app-shell {
+    background: #fff;
+  }
+
+  body.diy-page .phone {
+    max-width: none;
+    box-shadow: none;
+    background: #fff;
+    min-height: auto;
+  }
+
+  body.diy-page .diy-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 32px 56px;
+    box-sizing: border-box;
+  }
+
+  /* ── Hero banner ── */
+  body.diy-page .page-hero {
+    width: 100%;
+    max-width: 1300px;
+    height: 223px;
+    margin: 0 auto 24px;
+    border-radius: 14px;
+    line-height: 0;
+  }
+
+  body.diy-page .page-hero img {
+    width: 100%;
+    height: 223px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  /* ── Breadcrumb ── */
+  body.diy-page .diy-content .breadcrumb {
+    background: transparent;
+    padding: 0 0 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  /* ── Tags ── */
+  body.diy-page .tags-section {
+    padding: 0 0 32px;
+  }
+
+  body.diy-page .tags-label {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  body.diy-page .tags-grid {
+    gap: 12px;
+  }
+
+  body.diy-page .tag {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  /* ── Activity card grid ── */
+  body.diy-page .activity-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 28px;
+    padding-bottom: 48px;
+  }
+
+  body.diy-page .activity-card {
+    padding: 0;
+  }
+
+  body.diy-page .activity-card .card-img {
+    height: 240px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+  }
+
+  body.diy-page .activity-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  body.diy-page .activity-card p {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  body.diy-page .tagged-header {
+    text-align: left;
+    padding: 0 0 28px;
+    font-size: 28px;
+  }
+
+  /* ── Article detail ── */
+  body.diy-page .article-header {
+    text-align: center;
+    padding: 8px 0 20px;
+  }
+
+  body.diy-page .article-header h1 {
+    font-size: 34px;
+    margin-bottom: 16px;
+  }
+
+  body.diy-page .article-header .tag,
+  body.diy-page .article-header .card-tags {
+    margin: 0 4px;
+  }
+
+  body.diy-page .article-header .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  body.diy-page .hero-img {
+    width: 900px;
+    max-width: 100%;
+    height: 523px;
+    margin: 0 auto 28px;
+    border-radius: 16px;
+  }
+
+  body.diy-page .article-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 24px;
+  }
+
+  body.diy-page .article-body h2 {
+    font-size: 26px;
+    text-align: left;
+    margin: 16px 0 18px;
+  }
+
+  body.diy-page .step-block {
+    margin-bottom: 28px;
+  }
+
+  body.diy-page .step-img-single {
+    width: 900px;
+    max-width: 100%;
+    height: 523px;
+    margin: 0 auto 12px;
+    border-radius: 16px;
+  }
+
+  body.diy-page .step-img-duo {
+    width: 900px;
+    max-width: 100%;
+    height: 523px;
+    margin: 0 auto 12px;
+    border-radius: 16px;
+  }
+
+  body.diy-page .watch-label {
+    font-size: 20px;
+    max-width: 900px;
+    margin: 28px auto 14px;
+  }
+
+  body.diy-page .hero-img .img-placeholder,
+  body.diy-page .step-img-single .img-placeholder,
+  body.diy-page .step-img-duo .img-placeholder,
+  body.diy-page .video-thumb .img-placeholder {
+    height: 100% !important;
+    border-radius: 16px;
+  }
+
+  body.diy-page .video-thumb {
+    width: 900px;
+    max-width: 100%;
+    height: 523px;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
+  body.diy-page .share-strip {
+    max-width: 900px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+  }
+
+  /* Printables listing — inherit DIY activities laptop layout */
+  body.printables-page.diy-page:has(#view-listing.active) .diy-content,
+  body.printables-page.diy-page:has(#view-section-all.active) .diy-content,
+  body.printables-page.diy-page:has(#view-tag.active) .diy-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 32px 56px;
+  }
+
+  body.diy-activities-page .diy-listing-newsletter,
+  body.printables-page #view-listing .article-newsletter {
+    display: none !important;
+  }
+}

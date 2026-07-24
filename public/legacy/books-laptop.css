@@ -1,0 +1,683 @@
+/* Books page — laptop layout */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  body.books-page .app-shell {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  /* ── Hero (1440×528) ── */
+  body.books-page .hero {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto;
+    padding: 24px max(16px, calc((100% - 1440px) / 2)) 0;
+    box-sizing: border-box;
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  body.books-page .hero img {
+    width: 100%;
+    height: 528px;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+    display: block;
+  }
+
+  /* ── Breadcrumb ── */
+  body.books-page .breadcrumb {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px max(16px, calc((100% - 1440px) / 2)) 8px;
+    box-sizing: border-box;
+  }
+
+  /* ── Category tiles: 6 per row + blue circle arrows ── */
+  body.books-page #booksCategorySection {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 8px max(16px, calc((100% - 1440px) / 2)) 0;
+    box-sizing: border-box;
+  }
+
+  body.books-page #booksCategorySection .progress-rail {
+    display: none !important;
+  }
+
+  body.books-page #booksCategorySection .carousel-row--tiles {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 52px;
+    padding-right: 52px;
+    min-height: 263px;
+  }
+
+  body.books-page #booksCategorySection .carousel-arrow {
+    display: flex !important;
+  }
+
+  body.books-page #booksCategorySection .carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    max-width: calc(200px * 6 + 14px * 5);
+    margin: 0 auto;
+  }
+
+  body.books-page #categoryTrack {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    align-items: stretch !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+    margin: 0;
+    scrollbar-width: none;
+  }
+
+  body.books-page #categoryTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.books-page #categoryTrack .tile-card {
+    flex: 0 0 200px !important;
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    height: 263px !important;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+  }
+
+  body.books-page #categoryTrack .tile-img {
+    width: 200px !important;
+    height: 200px !important;
+    flex: none;
+    border-radius: 18px;
+  }
+
+  body.books-page #categoryTrack .tile-label {
+    font-size: 0.95rem;
+  }
+
+  /* ── Featured: banner 325×506 + 3 cards 303×504, arrows on sides ── */
+  body.books-page #booksFeaturedSection {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px max(16px, calc((100% - 1440px) / 2)) 8px;
+    box-sizing: border-box;
+  }
+
+  body.books-page #booksFeaturedSection .progress-rail {
+    display: none !important;
+  }
+
+  body.books-page .books-featured-row {
+    position: relative;
+    min-height: 506px;
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+
+  body.books-page .books-featured-row .carousel-arrow {
+    display: flex !important;
+  }
+
+  body.books-page .books-featured-viewport {
+    overflow: visible;
+    max-width: none;
+    width: 100%;
+  }
+
+  body.books-page .books-featured-layout {
+    display: grid;
+    grid-template-columns: 325px minmax(0, 1fr);
+    gap: 14px;
+    align-items: stretch;
+    width: 100%;
+    max-width: calc(325px + 14px + 303px * 3 + 14px * 2);
+    margin: 0 auto;
+  }
+
+  body.books-page .books-featured-layout .category-banner {
+    width: 325px;
+    height: 506px;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: auto;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  body.books-page .books-featured-layout .category-banner picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.books-page .books-featured-layout .category-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  body.books-page .books-featured-cards-wrap {
+    overflow: hidden;
+    width: calc(303px * 3 + 14px * 2);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.books-page #featuredTrack {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+    margin: 0;
+    align-items: stretch !important;
+    height: 504px;
+    scrollbar-width: none;
+  }
+
+  body.books-page #featuredTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.books-page #featuredTrack .product-card {
+    flex: 0 0 303px !important;
+    width: 303px !important;
+    min-width: 303px !important;
+    max-width: 303px !important;
+    height: 504px !important;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    border: 1px solid #e4e7f2;
+    border-radius: 18px;
+    padding: 16px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  body.books-page #featuredTrack .product-card .img-wrap {
+    height: 268px;
+    width: 100%;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  body.books-page #featuredTrack .product-card .cover {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 12px;
+    aspect-ratio: unset;
+    background: linear-gradient(160deg, var(--c1), var(--c2));
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  body.books-page #featuredTrack .product-card .cover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 9px;
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  body.books-page #featuredTrack .product-card .cover-title {
+    font-family: 'Buenos Aires', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 1;
+  }
+
+  body.books-page #featuredTrack .product-card .cover-author {
+    margin-top: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1;
+  }
+
+  body.books-page #featuredTrack .product-card .rating-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex: none;
+  }
+
+  body.books-page #featuredTrack .product-card .stars {
+    color: #ed1c24;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  body.books-page #featuredTrack .product-card .rating-num {
+    font-size: 15px;
+    color: #1a1a1a;
+    margin-left: 6px;
+    font-weight: 500;
+  }
+
+  body.books-page #featuredTrack .product-card .price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+    flex: none;
+  }
+
+  body.books-page #featuredTrack .product-card .product-title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.28;
+    margin: 0 0 12px;
+    color: #1a1a1a;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    min-height: 0;
+  }
+
+  body.books-page #featuredTrack .product-card .add-cart-btn {
+    width: 100%;
+    background: #004ebc;
+    color: #fff;
+    font-family: 'Buenos Aires', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 11px;
+    min-height: 44px;
+    border-radius: 999px;
+    box-shadow: 0 3px 0 #003894;
+    border: none;
+    cursor: pointer;
+    flex: none;
+    margin-top: auto;
+  }
+
+  /* Override responsive-shell tablet grids on books page */
+  body.books-page #categoryTrack .tile-card,
+  body.books-page #featuredTrack .product-card {
+    scroll-snap-align: start;
+  }
+
+  /* ── Product listing grid (filter sidebar + cards) ── */
+  body.books-page .page {
+    max-width: min(100%, 1400px);
+    margin: 0 auto;
+    padding: 0 max(32px, calc((100% - 1400px) / 2)) 48px;
+  }
+
+  body.books-page .pagination {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: max(32px, calc((100% - 1400px) / 2));
+    padding-right: max(32px, calc((100% - 1400px) / 2));
+  }
+
+  body.books-page .page .product-grid .product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body.books-page .page .product-grid .cover {
+    flex: none;
+    width: 100%;
+    height: 260px;
+    margin: 0;
+    border-radius: 0;
+    aspect-ratio: unset;
+    background: linear-gradient(160deg, var(--c1), var(--c2));
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 14px 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  body.books-page .page .product-grid .cover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 9px;
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  body.books-page .page .product-grid .cover-title {
+    font-family: 'Buenos Aires', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 1;
+  }
+
+  body.books-page .page .product-grid .cover-author {
+    margin-top: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1;
+  }
+
+  body.books-page .page .product-grid .product-info {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px 16px;
+    gap: 8px;
+  }
+
+  body.books-page .page .product-grid .rating-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0;
+    flex: none;
+  }
+
+  body.books-page .page .product-grid .rating-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  body.books-page .page .product-grid .stars {
+    color: #ed1c24;
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  body.books-page .page .product-grid .rating-text {
+    font-size: 0.88rem;
+    color: #5b6878;
+    white-space: nowrap;
+  }
+
+  body.books-page .page .product-grid .product-price {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    flex-shrink: 0;
+  }
+
+  body.books-page .page .product-grid .product-title {
+    flex: 1;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  body.books-page .page .product-grid .add-cart-btn {
+    width: 100%;
+    margin-top: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 12px 16px;
+    min-height: 44px;
+    font-size: 0.92rem;
+  }
+
+  body.books-page .info-accordion {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-left: max(32px, calc((100% - 1300px) / 2));
+    padding-right: max(32px, calc((100% - 1300px) / 2));
+  }
+
+  body.books-page .pagination {
+    display: none;
+  }
+}
+
+@media (max-width: 799px) {
+  body.books-page #booksCategorySection .carousel-arrow {
+    display: none;
+  }
+
+  body.books-page #booksCategorySection .carousel-row--tiles {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body.books-page #booksCategorySection .carousel-viewport {
+    overflow: visible;
+  }
+}
+
+/* Phone: stacked featured banner + cards */
+@media (max-width: 499px) {
+  body.books-page .books-featured-row .carousel-arrow {
+    display: none;
+  }
+
+  body.books-page .books-featured-row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body.books-page .books-featured-viewport {
+    overflow: visible;
+  }
+
+  body.books-page .books-featured-layout {
+    display: block;
+  }
+
+  body.books-page .books-featured-cards-wrap {
+    width: 100%;
+    overflow: visible;
+  }
+
+  body.books-page #featuredTrack {
+    height: auto !important;
+  }
+
+  body.books-page .page > .toolbar {
+    padding-left: var(--page-pad, 16px);
+    padding-right: var(--page-pad, 16px);
+  }
+}
+
+/* Tablet: same books-featured-layout structure as 800–1150 (banner + cards row) */
+@media (min-width: 500px) and (max-width: 799px) {
+  body.books-page #booksFeaturedSection {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 12px 8px;
+    box-sizing: border-box;
+  }
+
+  body.books-page #booksFeaturedSection .progress-rail {
+    display: none !important;
+  }
+
+  body.books-page .books-featured-row {
+    position: relative;
+    min-height: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  body.books-page .books-featured-row .carousel-arrow {
+    display: flex !important;
+  }
+
+  body.books-page .books-featured-viewport {
+    overflow: visible;
+    max-width: none;
+    width: 100%;
+  }
+
+  body.books-page .books-featured-layout {
+    display: grid;
+    grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  body.books-page .books-featured-layout .category-banner {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 325 / 506;
+    max-width: none;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  body.books-page .books-featured-layout .category-banner picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.books-page .books-featured-layout .category-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  body.books-page .books-featured-cards-wrap {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  body.books-page #featuredTrack {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+    margin: 0;
+    align-items: stretch !important;
+    height: 100%;
+    min-height: 280px;
+    scrollbar-width: none;
+  }
+
+  body.books-page #featuredTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.books-page #featuredTrack .product-card {
+    flex: 0 0 188px !important;
+    width: 188px !important;
+    min-width: 188px !important;
+    max-width: 188px !important;
+    height: auto !important;
+    min-height: 280px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    border: 1px solid #e4e7f2;
+    border-radius: 14px;
+    padding: 12px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  body.books-page #featuredTrack .product-card .img-wrap {
+    height: 160px;
+    width: 100%;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  body.books-page #featuredTrack .product-card .product-title {
+    font-size: 13px;
+    -webkit-line-clamp: 3;
+  }
+
+  body.books-page #featuredTrack .product-card .price {
+    font-size: 18px;
+  }
+
+  body.books-page #featuredTrack .product-card .add-cart-btn {
+    font-size: 0.82rem;
+    padding: 9px;
+    min-height: 40px;
+  }
+}

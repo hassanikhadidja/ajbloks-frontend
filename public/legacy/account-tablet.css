@@ -1,0 +1,335 @@
+/* Mon compte — mobile polish + tablet (500–799px). Laptop layout starts at 800px. */
+
+/* Avatar overlays the profile — ignore hits so Modifier stays clickable */
+body.account-page .account-avatar-wrap,
+body.account-page .account-avatar {
+  pointer-events: none !important;
+}
+
+body.account-page .section-header,
+body.account-page .edit-btn,
+body.account-page .add-btn,
+body.account-page #editContactBtn,
+body.account-page #addAddressBtn {
+  position: relative;
+  z-index: 30;
+  pointer-events: auto !important;
+}
+
+/* ── Mobile & small phones ── */
+@media (max-width: 799px) {
+  html,
+  body.account-page,
+  body.account-page.diy-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.account-page {
+    align-items: stretch;
+    background: #f0efed;
+  }
+
+  body.account-page.diy-page .app-shell {
+    overflow-x: clip;
+    max-width: 100%;
+    background: #f0efed;
+  }
+
+  /* Do not clip Y — overflow-x:clip forces both axes and hides the scaled avatar */
+  body.account-page.diy-page .phone {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+    overflow: visible;
+    background: #f0efed;
+  }
+
+  body.account-page .account-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  body.account-page .account-layout {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  body.account-page .account-mobile-header,
+  body.account-page .tab-nav,
+  body.account-page .account-panel,
+  body.account-page .account-panel main,
+  body.account-page .account-mobile-footer {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.account-page .tab-nav {
+    padding: 18px 16px 0;
+    gap: 24px;
+    background: #f0efed;
+  }
+
+  body.account-page .tab-btn {
+    flex-shrink: 0;
+  }
+
+  body.account-page .account-panel main {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  body.account-page .welcome-card {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 18px 16px;
+  }
+
+  body.account-page .shop-btn {
+    margin-left: auto;
+  }
+
+  body.account-page .account-mobile-footer {
+    padding: 16px 16px 32px;
+    justify-content: flex-start;
+    gap: 10px 16px;
+  }
+
+  body.account-page .account-mobile-footer a {
+    word-break: break-word;
+  }
+}
+
+/* ── Phone only: avatar wrap ×3, margin-top 27px; header size unchanged ── */
+@media (max-width: 499px) {
+  body.account-page.diy-page .phone,
+  body.account-page .account-content {
+    overflow: visible !important;
+  }
+
+  body.account-page .account-mobile-header {
+    overflow: visible !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  body.account-page .account-avatar-wrap {
+    width: 126px !important; /* 42px × 3 */
+    height: 126px !important;
+    margin-right: 10px;
+    transform: translateX(-14px);
+    overflow: visible !important;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    pointer-events: none !important;
+    z-index: 1;
+  }
+
+  body.account-page .account-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    margin-top: 20.5px !important;
+    transform: scale(3) !important;
+    transform-origin: top center !important;
+    object-fit: contain;
+    display: block;
+    pointer-events: none !important;
+  }
+}
+
+/* ── Tablet content zone (500–799px) ── */
+@media (min-width: 500px) and (max-width: 799px) {
+  body.account-page {
+    background: #f0efed;
+    align-items: stretch;
+  }
+
+  body.account-page.diy-page .app-shell {
+    background: #f0efed;
+  }
+
+  body.account-page.diy-page .phone {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    background: #f0efed;
+    overflow: visible;
+  }
+
+  body.account-page .account-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+  }
+
+  /* White header — full viewport width */
+  body.account-page .account-mobile-header {
+    max-width: none !important;
+    width: 100%;
+    margin: 0;
+    padding: 18px 32px;
+    background: #fff !important;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: visible;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  body.account-page .account-mobile-header .logo {
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+  }
+
+  body.account-page .account-mobile-header .logo img {
+    height: 52px;
+    max-width: min(260px, 50vw);
+    transform: scale(1.12);
+    transform-origin: left center;
+  }
+
+  body.account-page .account-avatar-wrap {
+    width: 96px !important;
+    height: 96px !important;
+    margin-right: 4px !important;
+    margin-top: 12px !important;
+    transform: none !important;
+    overflow: visible !important;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    pointer-events: none !important;
+    z-index: 1;
+  }
+
+  body.account-page .account-avatar {
+    width: 250px !important;
+    height: 250px !important;
+    margin-top: -13px !important;
+    transform: none !important;
+    object-fit: contain !important;
+    display: block;
+    pointer-events: none !important;
+  }
+
+  body.account-page .tab-nav {
+    max-width: none !important;
+    width: 100%;
+    padding: 20px 28px 0;
+    gap: 28px;
+    background: #f0efed;
+  }
+
+  body.account-page .tab-btn {
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom-width: 3px;
+  }
+
+  body.account-page .account-panel {
+    width: 100%;
+    max-width: none;
+  }
+
+  body.account-page .account-panel main {
+    max-width: none !important;
+    width: 100%;
+    padding: 20px 28px 28px;
+    gap: 20px;
+  }
+
+  body.account-page .section-header {
+    margin-bottom: 10px;
+  }
+
+  body.account-page .section-header h3 {
+    font-size: 18px;
+  }
+
+  body.account-page .welcome-card {
+    padding: 24px 26px;
+    border-radius: 14px;
+    flex-wrap: nowrap;
+  }
+
+  body.account-page .welcome-text h2 {
+    font-size: 24px;
+  }
+
+  body.account-page .welcome-text p {
+    font-size: 18px;
+  }
+
+  body.account-page .shop-btn {
+    padding: 14px 28px;
+    font-size: 17px;
+  }
+
+  body.account-page .kids-club-section {
+    border-radius: 14px;
+  }
+
+  body.account-page .kids-club-header {
+    padding: 20px 24px 0;
+  }
+
+  body.account-page .kids-club-header h3 {
+    font-size: 19px;
+  }
+
+  body.account-page .kids-club-main {
+    padding: 16px 24px 24px;
+  }
+
+  body.account-page .kids-club-card-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  body.account-page .kids-club-promo-message {
+    font-size: 16px;
+  }
+
+  body.account-page .order-row {
+    padding: 16px 24px;
+  }
+
+  body.account-page .info-card,
+  body.account-page .signout-card {
+    border-radius: 14px;
+  }
+
+  body.account-page .info-row,
+  body.account-page .pref-row,
+  body.account-page .empty-row {
+    padding: 18px 24px;
+  }
+
+  body.account-page .info-value {
+    max-width: 65%;
+  }
+
+  body.account-page .account-mobile-footer {
+    max-width: none !important;
+    width: 100%;
+    padding: 18px 28px 40px;
+    justify-content: flex-start;
+  }
+
+  body.account-page .account-mobile-footer a {
+    font-size: 14px;
+  }
+}

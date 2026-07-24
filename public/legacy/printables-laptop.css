@@ -1,0 +1,525 @@
+/* Printables — tablet layout (500–899px): phone-like stack, full hero & cards */
+@media (min-width: 500px) and (max-width: 899px) {
+  body.printables-page.diy-page .phone {
+    max-width: 100%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  }
+
+  body.printables-page .diy-content {
+    max-width: none;
+  }
+
+  body.printables-page .printable-section {
+    margin-bottom: 8px;
+  }
+
+  body.printables-page .hero {
+    height: auto;
+    overflow: visible;
+    line-height: 0;
+  }
+
+  body.printables-page .hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  body.printables-page .printable-section .printable-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+
+  body.printables-page .printable-card {
+    width: 100%;
+  }
+
+  body.printables-page .printable-cards-grid .photo-card,
+  body.printables-page .printable-section .photo-card {
+    margin: 20px 28px 0;
+    min-height: 0;
+    border-radius: 16px;
+  }
+
+  body.printables-page .printable-cards-grid .photo-card img,
+  body.printables-page .printable-section .photo-card img,
+  body.printables-page .printable-cards-grid .photo-card svg,
+  body.printables-page .printable-section .photo-card svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  body.printables-page .card-text {
+    padding: 14px 28px 24px;
+  }
+
+  body.printables-page .card-title {
+    font-size: 28px;
+  }
+
+  body.printables-page .card-desc {
+    font-size: 17px;
+  }
+
+  body.printables-page .view-all {
+    padding: 24px 28px 36px;
+  }
+
+  body.printables-page .section-bc,
+  body.printables-page .bc {
+    padding: 24px 28px 8px;
+    font-size: 18px;
+  }
+
+  body.printables-page .tags-section {
+    padding: 24px 28px;
+  }
+
+  body.printables-page .tags-label {
+    font-size: 17px;
+  }
+
+  body.printables-page .tag {
+    font-size: 15px;
+    padding: 11px 20px;
+  }
+
+  body.printables-page .tagged-header {
+    font-size: 26px;
+    padding: 28px 28px 32px;
+    text-align: center;
+  }
+
+  body.printables-page #sectionImprimerablesCards,
+  body.printables-page #tagImprimerablesCards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 0 40px;
+  }
+
+  body.printables-page #sectionImprimerablesCards .photo-card,
+  body.printables-page #tagImprimerablesCards .photo-card {
+    margin: 20px 28px 0;
+    min-height: 0;
+  }
+
+  body.printables-page #sectionImprimerablesCards .photo-card img,
+  body.printables-page #tagImprimerablesCards .photo-card img,
+  body.printables-page #sectionImprimerablesCards .photo-card svg,
+  body.printables-page #tagImprimerablesCards .photo-card svg {
+    width: 100%;
+    height: auto;
+  }
+
+  body.printables-page #sectionImprimerablesCards .card-text,
+  body.printables-page #tagImprimerablesCards .card-text {
+    padding: 14px 28px 24px;
+  }
+
+  body.printables-page .detail-h {
+    font-size: 34px;
+    padding: 18px 28px 14px;
+  }
+
+  body.printables-page .detail-body {
+    padding: 22px 28px 10px;
+    font-size: 18px;
+  }
+
+  body.printables-page .detail-img {
+    margin: 0 28px;
+  }
+
+  body.printables-page .detail-img img,
+  body.printables-page .detail-img svg {
+    width: 100%;
+    height: auto;
+  }
+
+  body.printables-page .detail-sep {
+    margin: 6px 28px 22px;
+  }
+
+  body.printables-page .btn-dl {
+    margin: 0 28px 36px;
+    font-size: 1.05rem;
+    padding: 16px 40px;
+  }
+
+  body.printables-page .more-section-head {
+    padding: 0 28px 12px;
+  }
+
+  body.printables-page .more-section-title {
+    font-size: 28px;
+  }
+
+  body.printables-page #moreImprimerablesCards {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 0 32px;
+  }
+
+  body.printables-page #moreImprimerablesCards .more-card .photo-card {
+    margin: 16px 28px 0;
+    min-height: 0;
+  }
+
+  body.printables-page #moreImprimerablesCards .more-card .photo-card img,
+  body.printables-page #moreImprimerablesCards .more-card .photo-card svg {
+    width: 100%;
+    height: auto;
+  }
+
+  body.printables-page #moreImprimerablesCards .more-card .card-text {
+    padding: 14px 28px 24px;
+  }
+}
+
+/* Printables — laptop layout (1400px+, 1300px content grid) */
+@media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
+  html,
+  body.printables-page.diy-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body.printables-page.diy-page {
+    background: #fff;
+  }
+
+  body.printables-page.diy-page .app-shell {
+    background: #fff;
+    overflow-x: clip;
+  }
+
+  body.printables-page.diy-page .phone {
+    max-width: none;
+    width: 100%;
+    box-shadow: none;
+    background: #fff;
+    min-height: auto;
+    overflow-x: clip;
+  }
+
+  body.printables-page .diy-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 24px 32px 56px;
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  /* Listing / browse views — same shell as DIY activities (grid via diy-laptop.css) */
+  body.printables-page #view-listing .page-hero,
+  body.printables-page #view-section-all .page-hero,
+  body.printables-page #view-tag .page-hero {
+    width: 100%;
+    max-width: 1300px;
+    height: 223px;
+    margin: 0 auto 24px;
+    border-radius: 14px;
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  body.printables-page #view-listing .page-hero img,
+  body.printables-page #view-section-all .page-hero img,
+  body.printables-page #view-tag .page-hero img {
+    width: 100%;
+    height: 223px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
+
+  body.printables-page #view-listing .breadcrumb,
+  body.printables-page #view-section-all .breadcrumb,
+  body.printables-page #view-tag .breadcrumb {
+    background: transparent;
+    padding: 0 0 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  body.printables-page #view-listing .tags-section,
+  body.printables-page #view-section-all .tags-section,
+  body.printables-page #view-tag .tags-section {
+    padding: 0 0 32px;
+  }
+
+  body.printables-page #view-listing .tags-label,
+  body.printables-page #view-section-all .tags-label,
+  body.printables-page #view-tag .tags-label {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  body.printables-page #view-listing .tags-grid,
+  body.printables-page #view-section-all .tags-grid,
+  body.printables-page #view-tag .tags-grid {
+    gap: 12px;
+  }
+
+  body.printables-page #view-listing .tag,
+  body.printables-page #view-section-all .tag,
+  body.printables-page #view-tag .tag {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  body.printables-page #view-listing .tag.active,
+  body.printables-page #view-section-all .tag.active,
+  body.printables-page #view-tag .tag.active {
+    outline: 2px solid #004ebc;
+    outline-offset: 2px;
+  }
+
+  body.printables-page #view-listing .activity-cards,
+  body.printables-page #view-section-all .activity-cards,
+  body.printables-page #view-tag .activity-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 28px;
+    padding-bottom: 48px;
+  }
+
+  body.printables-page #view-listing .activity-card,
+  body.printables-page #view-section-all .activity-card,
+  body.printables-page #view-tag .activity-card {
+    padding: 0;
+  }
+
+  body.printables-page #view-listing .activity-card .card-img,
+  body.printables-page #view-section-all .activity-card .card-img,
+  body.printables-page #view-tag .activity-card .card-img {
+    height: 240px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+  }
+
+  body.printables-page #view-listing .activity-card h3,
+  body.printables-page #view-section-all .activity-card h3,
+  body.printables-page #view-tag .activity-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  body.printables-page #view-listing .activity-card p,
+  body.printables-page #view-section-all .activity-card p,
+  body.printables-page #view-tag .activity-card p {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  body.printables-page #view-tag .tagged-header {
+    display: none;
+  }
+  body.printables-page #view-detail .bc {
+    background: transparent;
+    padding: 0 0 20px;
+    font-size: 16px;
+    text-align: left;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.printables-page .tags-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0 32px;
+  }
+
+  body.printables-page .tags-label {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  body.printables-page .tags-grid {
+    gap: 12px;
+  }
+
+  body.printables-page .tagged-header {
+    text-align: left;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0 28px;
+    font-size: 28px;
+  }
+
+  /* ── Detail page ── */
+  body.printables-page #view-detail .detail-top {
+    background: transparent;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.printables-page #view-detail .detail-h {
+    font-size: 34px;
+    padding: 8px 0 16px;
+  }
+
+  body.printables-page #view-detail .detail-tag-wrap {
+    padding: 0 0 24px;
+  }
+
+  body.printables-page #view-detail .detail-img {
+    width: 900px;
+    max-width: 100%;
+    height: 523px;
+    margin: 0 auto 28px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  body.printables-page #view-detail .detail-img svg,
+  body.printables-page #view-detail .detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  body.printables-page #view-detail .detail-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 8px;
+    font-size: 17px;
+  }
+
+  body.printables-page #view-detail .detail-sep {
+    max-width: 900px;
+    margin: 6px auto 22px;
+  }
+
+  body.printables-page #view-detail .btn-dl {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 40px;
+    background: #e31e26;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 18px 52px;
+    border-radius: 999px;
+    box-shadow: 0 5px 0 #b71c1c;
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+  }
+
+  body.printables-page #view-detail .btn-dl:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #b71c1c;
+  }
+
+  /* ── Check out more ── */
+  body.printables-page .more-section {
+    max-width: 1300px;
+    margin: 8px auto 0;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+  }
+
+  body.printables-page .more-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 0 28px;
+  }
+
+  body.printables-page .more-section-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #004ebc;
+    margin: 0;
+  }
+
+  body.printables-page .more-see-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: #004ebc;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 3px 0 #003894;
+    flex-shrink: 0;
+  }
+
+  body.printables-page .more-see-all:hover {
+    opacity: 0.92;
+  }
+
+  body.printables-page #view-detail .more-section .activity-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    box-sizing: border-box;
+  }
+
+  body.printables-page #view-detail .more-section .activity-card {
+    padding: 0;
+  }
+
+  body.printables-page #view-detail .more-section .activity-card .card-img {
+    height: 240px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+  }
+
+  body.printables-page.diy-page .app-shell > .promo-bar {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #bfeafb !important;
+    text-align: left;
+    padding: 8px var(--chrome-pad-x) !important;
+    margin: 0;
+  }
+
+  body.printables-page.diy-page .app-shell > .promo-bar .promo-bar-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  body.printables-page.diy-page .app-shell > .promo-bar .promo-bar-utils {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  body.printables-page.diy-page .app-shell > #mainNav.nav,
+  body.printables-page.diy-page .app-shell > header#mainNav.nav {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 14px var(--chrome-pad-x) 16px !important;
+    background: #004ebc !important;
+    gap: 0 !important;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+}
