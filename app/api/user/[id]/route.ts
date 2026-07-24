@@ -4,7 +4,7 @@ import { connectDB } from "@/lib/db";
 import User from "@/lib/models/User";
 import { requireAuth } from "@/lib/auth";
 import { jsonMsg, jsonError, handleRouteError } from "@/lib/api-utils";
-import { isValidPassword } from "@/lib/validators";
+import { isValidPassword, passwordRequirementsMessage } from "@/lib/validators";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -30,7 +30,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
 
     if (update.password) {
       if (!isValidPassword(String(update.password))) {
-        return jsonError("Invalid password", 400);
+        return jsonError(passwordRequirementsMessage(), 400);
       }
       update.password = await bcrypt.hash(String(update.password), 10);
     }

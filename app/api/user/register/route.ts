@@ -3,7 +3,11 @@ import { NextRequest } from "next/server";
 import { connectDB } from "@/lib/db";
 import User from "@/lib/models/User";
 import { jsonMsg, jsonError, handleRouteError } from "@/lib/api-utils";
-import { isValidEmail, isValidPassword } from "@/lib/validators";
+import {
+  isValidEmail,
+  isValidPassword,
+  passwordRequirementsMessage,
+} from "@/lib/validators";
 import { syncAccountMarketingEmail } from "@/lib/newsletter";
 
 export async function POST(req: NextRequest) {
@@ -20,15 +24,16 @@ export async function POST(req: NextRequest) {
     if (existing) return jsonError("Email exist please login", 400);
 
     if (!isValidPassword(String(body.password ?? ""))) {
-      return jsonError("Invalid password", 400);
+      return jsonError(passwordRequirementsMessage(), 400);
     }
 
     const hashed = await bcrypt.hash(String(body.password), 10);
+    const marketingEmail = body.marketingEmail !== false;
     const user = await User.create({
       email,
       password: hashed,
       name: body.name ? String(body.name) : undefined,
-      marketingEmail: true,
+      marketingEmail,
     });
 
     try {
@@ -36,7 +41,7 @@ export async function POST(req: NextRequest) {
         email: user.email,
         name: user.name || "",
         userId: String(user._id),
-        marketingEmail: true,
+        marketingEmail,
       });
     } catch (e) {
       console.warn("Newsletter sync on register failed", e);

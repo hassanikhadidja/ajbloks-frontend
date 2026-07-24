@@ -4,9 +4,11 @@ import "./globals.css";
 const SITE_URL = "https://www.ajbloks.com";
 const SITE_NAME = "AJ BLOKS";
 const SITE_DESCRIPTION =
-  "AJ BLOKS est la boutique en ligne de jouets, livres et activités pour enfants. Découvrez des jouets créatifs, des idées DIY, des imprimables et des guides cadeaux pour éveiller l'imagination de toute la famille.";
+  "Des jouets qui font sourire, des livres qui font rêver et des activités qui occupent les petits… pendant que les grands soufflent un peu !";
 const OG_IMAGE =
-  "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784894964/photo_2026-07-24_13-09-10_uiezci.jpg";
+  "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784913328/Design_sans_titre_-_2026-07-24T181520.339_qg18jg.png";
+const IG_IMAGE =
+  "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784912810/Design_sans_titre_-_2026-07-23T184908.866_akshuc.png";
 
 const apiBase =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -67,9 +69,17 @@ export const metadata: Metadata = {
       {
         url: OG_IMAGE,
         width: 1200,
-        height: 1200,
+        height: 630,
         alt: SITE_NAME,
-        type: "image/jpeg",
+        type: "image/png",
+      },
+      {
+        // Square art preferred by Instagram link previews
+        url: IG_IMAGE,
+        width: 1080,
+        height: 1080,
+        alt: `${SITE_NAME} — Bear Bob`,
+        type: "image/png",
       },
     ],
   },
@@ -81,6 +91,7 @@ export const metadata: Metadata = {
   },
   other: {
     "ajb-api-base": apiBase,
+    "instagram:image": IG_IMAGE,
   },
 };
 

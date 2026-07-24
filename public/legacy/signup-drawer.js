@@ -39,7 +39,8 @@
     var closeBtn = document.getElementById('signupCloseBtn') || document.getElementById('closeBtn');
     var signupBtn = document.getElementById('signupSubmitBtn') || document.getElementById('signupBtn');
     var emailInput = document.getElementById('signupEmailInput') || document.getElementById('emailInput');
-    var privacyLink = document.getElementById('signupPrivacyLink') || document.getElementById('privacyLink');
+    // Only the drawer-owned link — never hijack page-level #privacyLink (e.g. /signin).
+    var privacyLink = document.getElementById('signupPrivacyLink');
     return { overlay: overlay, drawer: drawer, closeBtn: closeBtn, signupBtn: signupBtn, emailInput: emailInput, privacyLink: privacyLink };
   }
 

@@ -4,22 +4,12 @@ export function isValidEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-const passwordSymbols = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
-
+/** At least 6 chars, with one uppercase letter. Lowercase and digits are allowed. */
 export function isValidPassword(password: string): boolean {
-  if (password.length < 6) return false;
+  if (typeof password !== "string" || password.length < 6) return false;
+  return /[A-Z]/.test(password);
+}
 
-  let upper = 0;
-  let lower = 0;
-  let digit = 0;
-  let symbol = 0;
-
-  for (const ch of password) {
-    if (ch >= "A" && ch <= "Z") upper++;
-    if (ch >= "a" && ch <= "z") lower++;
-    if (ch >= "0" && ch <= "9") digit++;
-    if (passwordSymbols.includes(ch)) symbol++;
-  }
-
-  return upper > 0 && lower > 0 && digit > 0 && symbol > 0;
+export function passwordRequirementsMessage(): string {
+  return "Le mot de passe doit contenir au moins 6 caractères, dont une majuscule (A–Z).";
 }

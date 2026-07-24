@@ -6,8 +6,6 @@
     '<svg width="32" height="42" viewBox="0 0 32 42" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 26 16 26S32 28 32 16C32 7.2 24.8 0 16 0z" fill="#d0021b"></path><text x="16" y="21" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">★</text></svg>';
   var ADDR_SVG =
     '<svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
-  var DIR_SVG =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="#1a3fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>';
   var LINK_SVG =
     '<svg viewBox="0 0 24 24" fill="none" stroke="#1a3fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path></svg>';
 
@@ -156,33 +154,6 @@
     return out;
   }
 
-  function destinationFor(store) {
-    // Address only — never the store name (avoids Google searching the label)
-    return String(store.location || "").trim();
-  }
-
-  function itineraireDestination(store) {
-    var coords = coordsFor(store);
-    if (coords) return coords.lat + "," + coords.lng;
-    var mapHref = mapLinkFor(store);
-    if (mapHref) return mapHref;
-    return destinationFor(store);
-  }
-
-  function isLatLngDest(value) {
-    return /^-?\d+(?:\.\d+)?\s*,\s*-?\d+(?:\.\d+)?$/.test(String(value || "").trim());
-  }
-
-  function openDirectionsTo(destination) {
-    var dest = String(destination || "").trim();
-    if (!dest) return;
-    window.open(
-      "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(dest),
-      "_blank",
-      "noopener,noreferrer",
-    );
-  }
-
   var STORE_TYPES = ["superette", "bureau-tabac", "magasin-jouets", "librairie", "usine"];
 
   var TYPE_KEYWORDS = {
@@ -244,7 +215,6 @@
     var location = String(store.location || "").trim();
     var website = String(store.website || "").trim();
     var mapHref = mapLinkFor(store);
-    var itinDest = itineraireDestination(store);
     var storeType = storeTypeOf(store);
 
     var html =
@@ -263,14 +233,6 @@
       "<span>" +
       esc(location || "Adresse à venir") +
       "</span>" +
-      "</div>" +
-      '<div class="meta-row">' +
-      DIR_SVG +
-      '<a href="#" data-itineraire="' +
-      escAttr(itinDest) +
-      '"' +
-      (mapHref ? ' data-map-link="' + escAttr(mapHref) + '"' : "") +
-      ">Itinéraire</a>" +
       "</div>";
 
     if (website && !looksLikeMapUrl(website)) {
@@ -283,13 +245,17 @@
         "</div>";
     }
 
-    html +=
-      '<button class="btn-map" type="button"' +
-      (mapHref ? ' data-map-link="' + escAttr(mapHref) + '"' : " disabled") +
-      ">" +
-      "Voir sur la carte" +
-      "</button>" +
-      "</div>";
+    if (mapHref) {
+      html +=
+        '<a class="btn-map" href="' +
+        escAttr(mapHref) +
+        '" target="_blank" rel="noopener noreferrer">Voir sur la carte</a>';
+    } else {
+      html +=
+        '<button class="btn-map" type="button" disabled>Voir sur la carte</button>';
+    }
+
+    html += "</div>";
     return html;
   }
 
@@ -431,91 +397,26 @@
     renderMarkers(filtered.length ? filtered : allStores);
   }
 
-  function openMapForStore(btn) {
-    var link = (btn && btn.getAttribute("data-map-link")) || "";
-    if (!link) return;
-    window.open(link, "_blank", "noopener,noreferrer");
-  }
-
-  function openItineraireFor(el) {
-    var dest = (el && el.getAttribute("data-itineraire")) || "";
-    var mapLink = (el && el.getAttribute("data-map-link")) || "";
-
-    // 1) Already have coordinates → directions to that pin
-    if (isLatLngDest(dest)) {
-      openDirectionsTo(dest.replace(/\s+/g, ""));
-      return;
-    }
-
-    // 2) Map link → resolve to lat/lng, never search by store name
-    if (mapLink) {
-      resolveShortMapLink(mapLink).then(function (resolved) {
-        if (resolved && isPlausibleCoord(Number(resolved.lat), Number(resolved.lng))) {
-          openDirectionsTo(resolved.lat + "," + resolved.lng);
-          return;
-        }
-        var fromUrl = parseMapLinkCoords(mapLink);
-        if (fromUrl) {
-          openDirectionsTo(fromUrl.lat + "," + fromUrl.lng);
-          return;
-        }
-        // Open the store map location itself (place pin), not a name search
-        window.open(mapLink, "_blank", "noopener,noreferrer");
-      });
-      return;
-    }
-
-    // 3) Address text only (no store name)
-    if (dest && !/^https?:\/\//i.test(dest)) {
-      openDirectionsTo(dest);
-    }
+  function openMapForStore(el) {
+    if (!el) return;
+    var link =
+      (el.getAttribute("href") || el.getAttribute("data-map-link") || "").trim();
+    if (!link || el.hasAttribute("disabled")) return;
+    window.open(ensureHttp(link), "_blank", "noopener,noreferrer");
   }
 
   function wireListClicks() {
     if (!list || list.dataset.wired === "1") return;
     list.dataset.wired = "1";
     list.addEventListener("click", function (e) {
-      var itin = e.target.closest("[data-itineraire]");
-      if (itin) {
-        e.preventDefault();
-        openItineraireFor(itin);
-        return;
-      }
-      var mapBtn = e.target.closest(".btn-map");
-      if (mapBtn) {
-        e.preventDefault();
-        openMapForStore(mapBtn);
-      }
+      var mapBtn = e.target.closest("a.btn-map, button.btn-map");
+      if (!mapBtn || mapBtn.tagName === "A") return;
+      e.preventDefault();
+      openMapForStore(mapBtn);
     });
   }
 
   window.searchStores = applyFilters;
-
-  window.openItinéraire = function (addressOrLink) {
-    if (!addressOrLink) return;
-    var value = String(addressOrLink).trim();
-    if (isLatLngDest(value)) {
-      openDirectionsTo(value.replace(/\s+/g, ""));
-      return;
-    }
-    if (/^https?:\/\//i.test(value) || looksLikeMapUrl(value)) {
-      var link = ensureHttp(value);
-      resolveShortMapLink(link).then(function (resolved) {
-        if (resolved && isPlausibleCoord(Number(resolved.lat), Number(resolved.lng))) {
-          openDirectionsTo(resolved.lat + "," + resolved.lng);
-          return;
-        }
-        var fromUrl = parseMapLinkCoords(link);
-        if (fromUrl) {
-          openDirectionsTo(fromUrl.lat + "," + fromUrl.lng);
-          return;
-        }
-        window.open(link, "_blank", "noopener,noreferrer");
-      });
-      return;
-    }
-    openDirectionsTo(value);
-  };
 
   window.viewOnMap = function (btn) {
     openMapForStore(btn);

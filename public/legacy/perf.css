@@ -8,6 +8,11 @@
   100% { background-position: -100% 0; }
 }
 
+@keyframes ajb-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ---- Skeleton state -------------------------------------------------
    Product containers that have not been hydrated with API data yet
    (no data-api-hydrated="1") mask their cards as skeletons. This kills
@@ -85,6 +90,145 @@
   box-shadow: none !important;
 }
 
+/* Hydrated product grids fade in smoothly */
+#productTrack[data-api-hydrated="1"],
+#bookTrack[data-api-hydrated="1"],
+#featuredTrack[data-api-hydrated="1"],
+#relatedTrack[data-api-hydrated="1"],
+#bobsProductTrack[data-api-hydrated="1"],
+#productGrid[data-api-hydrated="1"],
+.product-grid[data-api-hydrated="1"] {
+  animation: ajb-fade-in 0.28s ease-out;
+}
+
+/* ---- PDP skeleton (no demo flash) -------------------------------- */
+
+/* Hide demo-prone sections until real product data is applied. */
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .accordions,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .pdp-extra,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .related,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .age-row,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .warning-row,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .warning,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .thumb-row,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .pdp-reviews {
+  display: none !important;
+}
+
+/* Full skeleton when no SSR product seed */
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready) .pdp-details-col,
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready) .pdp-gallery-col .gallery {
+  visibility: hidden !important;
+}
+
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready) .pdp-gallery-col {
+  position: relative;
+  min-height: min(72vw, 420px);
+}
+
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready) .pdp-gallery-col::before {
+  content: "";
+  display: block;
+  margin: 16px 18px;
+  aspect-ratio: 1 / 1;
+  max-height: min(72vw, 420px);
+  border-radius: 12px;
+  background: linear-gradient(90deg, #eef1f8 25%, #f7f8fc 50%, #eef1f8 75%);
+  background-size: 200% 100%;
+  animation: ajb-shimmer 1.4s ease-in-out infinite;
+}
+
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready)::after {
+  content: "";
+  display: block;
+  margin: 18px;
+  height: 28px;
+  width: min(70%, 320px);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eef1f8 25%, #f7f8fc 50%, #eef1f8 75%);
+  background-size: 200% 100%;
+  animation: ajb-shimmer 1.4s ease-in-out infinite;
+}
+
+.pdp-layout.pdp-awaiting-api:not(.pdp-loaded):not(.pdp-ssr-ready)::before {
+  content: "";
+  display: block;
+  margin: 8px 18px 0;
+  height: 22px;
+  width: min(40%, 160px);
+  border-radius: 8px;
+  background: #eef1f8;
+}
+
+/* SSR seed: real title/price/image visible, demo copy still hidden */
+.pdp-layout.pdp-awaiting-api.pdp-ssr-ready:not(.pdp-loaded) .pdp-details-col,
+.pdp-layout.pdp-awaiting-api.pdp-ssr-ready:not(.pdp-loaded) .pdp-gallery-col .gallery {
+  visibility: visible !important;
+}
+
+.pdp-layout.pdp-awaiting-api.pdp-ssr-ready:not(.pdp-loaded)::after,
+.pdp-layout.pdp-awaiting-api.pdp-ssr-ready:not(.pdp-loaded)::before,
+.pdp-layout.pdp-loaded::after,
+.pdp-layout.pdp-loaded::before {
+  content: none !important;
+  display: none !important;
+}
+
+.pdp-skel-slide {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background: #f4f5f7;
+}
+
+.pdp-layout.pdp-loaded .pdp-gallery-col,
+.pdp-layout.pdp-loaded .pdp-details-col,
+.pdp-layout.pdp-loaded .pdp-extra {
+  animation: ajb-fade-in 0.32s ease-out;
+}
+
+/* ---- Heroes / above-the-fold --------------------------------------- */
+
+.hero-full {
+  background-color: #1a2a4a;
+}
+
+.hero-full-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+.hero-banner,
+.bobs-hero,
+.bobs-banner,
+.story-hero-frame,
+.hero-img {
+  background-color: #e8ecf4;
+}
+
+.hero-banner img,
+.bobs-hero img,
+.bobs-banner img,
+.story-hero-img,
+.hero-full-media,
+img[fetchpriority="high"] {
+  content-visibility: visible;
+}
+
+.hero-banner img,
+.bobs-hero img,
+.bobs-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ---- Image fade-in --------------------------------------------------
    Dynamically injected card images start transparent and fade in once
    decoded. The 1.2s keyframe fallback guarantees the image becomes
@@ -105,6 +249,16 @@ img.ajb-img.ajb-in {
   to { opacity: 1; }
 }
 
+/* Hero / LCP images must never start invisible */
+.hero-banner img.ajb-img,
+.hero-full-media.ajb-img,
+.bobs-hero img.ajb-img,
+.bobs-banner img.ajb-img,
+img[fetchpriority="high"].ajb-img {
+  opacity: 1;
+  animation: none;
+}
+
 /* ---- Rendering cost -------------------------------------------------
    Skip layout/paint work for the footer until it approaches the
    viewport. */
@@ -116,7 +270,12 @@ footer.footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  img.ajb-img {
+  img.ajb-img,
+  .pdp-layout.pdp-loaded .pdp-gallery-col,
+  .pdp-layout.pdp-loaded .pdp-details-col,
+  .pdp-layout.pdp-loaded .pdp-extra,
+  #productTrack[data-api-hydrated="1"],
+  #productGrid[data-api-hydrated="1"] {
     opacity: 1;
     transition: none;
     animation: none;
@@ -124,7 +283,9 @@ footer.footer {
   #productTrack:not([data-api-hydrated="1"]) .product-card .img-wrap,
   #productGrid:not([data-api-hydrated="1"]) .product-card .product-image,
   .product-grid:not([data-api-hydrated="1"]) .product-card .product-image,
-  .age-section .carousel:not([data-api-hydrated="1"]) .product-card .img-wrap {
+  .age-section .carousel:not([data-api-hydrated="1"]) .product-card .img-wrap,
+  .pdp-layout.pdp-awaiting-api:not(.pdp-loaded) .pdp-gallery-col::before,
+  .pdp-layout.pdp-awaiting-api:not(.pdp-loaded)::after {
     animation: none;
   }
 }

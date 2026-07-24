@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo } from "react";
 import type { DashboardProduct } from "@/lib/product-mapper";
+import { cloudinaryLcpUrl, extractLcpImageUrls } from "@/lib/loading-utils";
 
 type LegacyPageProps = {
   lang?: string;
@@ -24,7 +25,7 @@ function hashLegacyScript(code: string): string {
 
 function wrapLegacyInlineScript(code: string): string {
   const key = `__legacyScript_${hashLegacyScript(code)}`;
-  return `if(!window.${key}){window.${key}=1;${code}}`;
+  return `if(!window.${key}){window.${key}=1;try{${code}}catch(e){console.error('Legacy inline script error',e)}}`;
 }
 
 function orderLegacyScripts(scripts: string[], bodyHtml: string) {
@@ -61,11 +62,11 @@ function ensureSiteHeaderAssets(
 
   // Perf assets are global: perf.css first so skeleton masking applies from
   // the very first paint; perf.js last so it never delays feature scripts.
-  const nextStyles = stylesheets.some((href) => href.endsWith("perf.css"))
+  const nextStyles = stylesheets.some((href) => href.includes("perf.css"))
     ? [...stylesheets]
-    : ["/legacy/perf.css", ...stylesheets];
+    : ["/legacy/perf.css?v=load-exp-1", ...stylesheets];
   const nextScripts = [...externalScripts];
-  if (!nextScripts.some((src) => src.endsWith("perf.js"))) {
+  if (!nextScripts.some((src) => src.includes("perf.js"))) {
     nextScripts.push("/legacy/perf.js");
   }
 
@@ -159,9 +160,34 @@ function ensureProductStorefront(
   };
 }
 
+function normalizeLegacyScriptSrc(src: string): string {
+  // Bust Chrome's cached footer script so LinkedIn updates reliably.
+  if (src.includes("/legacy/site-footer.js")) {
+    return "/legacy/site-footer.js?v=li-pinterest-youtube";
+  }
+  if (src.includes("/legacy/perf.js")) {
+    return "/legacy/perf.js?v=load-exp-1";
+  }
+  if (src.includes("/legacy/product-card-links.js")) {
+    return "/legacy/product-card-links.js?v=load-exp-1";
+  }
+  return src;
+}
+
 function loadLegacyScript(src: string): Promise<void> {
+  const resolved = normalizeLegacyScriptSrc(src);
+  // Drop stale footer script tags from older sessions.
+  if (resolved.includes("site-footer.js")) {
+    document
+      .querySelectorAll("script[data-legacy-src*='site-footer.js']")
+      .forEach((node) => {
+        const el = node as HTMLScriptElement;
+        if (el.dataset.legacySrc !== resolved) el.remove();
+      });
+  }
+
   const existing = document.querySelector(
-    `script[data-legacy-src="${CSS.escape(src)}"]`,
+    `script[data-legacy-src="${CSS.escape(resolved)}"]`,
   ) as HTMLScriptElement | null;
   if (existing) {
     if (existing.dataset.loaded === "1") return Promise.resolve();
@@ -169,7 +195,7 @@ function loadLegacyScript(src: string): Promise<void> {
       existing.addEventListener("load", () => resolve(), { once: true });
       existing.addEventListener(
         "error",
-        () => reject(new Error(`Failed to load ${src}`)),
+        () => reject(new Error(`Failed to load ${resolved}`)),
         { once: true },
       );
     });
@@ -177,14 +203,14 @@ function loadLegacyScript(src: string): Promise<void> {
 
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = src;
+    script.src = resolved;
     script.async = false;
-    script.dataset.legacySrc = src;
+    script.dataset.legacySrc = resolved;
     script.onload = () => {
       script.dataset.loaded = "1";
       resolve();
     };
-    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    script.onerror = () => reject(new Error(`Failed to load ${resolved}`));
     document.body.appendChild(script);
   });
 }
@@ -216,6 +242,41 @@ export default function LegacyPage({
     [stylesheets, externalScripts, bodyHtml],
   );
 
+  const lcpImages = useMemo(() => {
+    const fromHtml = extractLcpImageUrls(bodyHtml, 3);
+    const fromProduct = initialProduct?.pictures?.[0]
+      ? [cloudinaryLcpUrl(initialProduct.pictures[0], 900)]
+      : [];
+    const merged: string[] = [];
+    [...fromProduct, ...fromHtml].forEach((url) => {
+      if (url && !merged.includes(url)) merged.push(url);
+    });
+    return merged.slice(0, 3);
+  }, [bodyHtml, initialProduct]);
+
+  const bootstrapScript = useMemo(() => {
+    const lines = ["delete window.__AJB_INITIAL_PRODUCT_USED__;"];
+    if (productId) {
+      lines.push(
+        "window.__AJB_PDP_PRODUCT_ID__=" +
+          JSON.stringify(productId).replace(/</g, "\\u003c") +
+          ";",
+      );
+    } else {
+      lines.push("delete window.__AJB_PDP_PRODUCT_ID__;");
+    }
+    if (initialProduct) {
+      lines.push(
+        "window.__AJB_INITIAL_PRODUCT__=" +
+          JSON.stringify(initialProduct).replace(/</g, "\\u003c") +
+          ";",
+      );
+    } else {
+      lines.push("delete window.__AJB_INITIAL_PRODUCT__;");
+    }
+    return lines.join("");
+  }, [productId, initialProduct]);
+
   useEffect(() => {
     document.documentElement.lang = lang;
     setLegacyBootstrap(productId, initialProduct);
@@ -235,10 +296,14 @@ export default function LegacyPage({
         inlineScripts.forEach((code) => {
           const key = `__legacyScript_${hashLegacyScript(code)}`;
           guardKeys.push(key);
-          const script = document.createElement("script");
-          script.textContent = wrapLegacyInlineScript(code);
-          document.body.appendChild(script);
-          executed.push(script);
+          try {
+            const script = document.createElement("script");
+            script.textContent = wrapLegacyInlineScript(code);
+            document.body.appendChild(script);
+            executed.push(script);
+          } catch (error) {
+            console.error("Legacy inline script failed", error);
+          }
         });
 
         const legacyWindow = window as unknown as {
@@ -254,6 +319,38 @@ export default function LegacyPage({
         }
 
         document.dispatchEvent(new CustomEvent("ajb:legacy-page-ready"));
+
+        const siteFooter = (
+          window as unknown as {
+            SiteFooter?: { mount?: (force?: boolean) => void; ensureLinkedIn?: () => void };
+          }
+        ).SiteFooter;
+        if (siteFooter) {
+          if (typeof siteFooter.mount === "function") siteFooter.mount(true);
+          else if (typeof siteFooter.ensureLinkedIn === "function") siteFooter.ensureLinkedIn();
+        } else {
+          // Fallback when a cached footer script never exposed helpers.
+          document.querySelectorAll(".social-row").forEach((row) => {
+            const labels = Array.from(row.querySelectorAll("a[aria-label]"));
+            const byLabel: Record<string, Element> = {};
+            labels.forEach((a) => {
+              const label = a.getAttribute("aria-label");
+              if (label) byLabel[label] = a;
+            });
+            if (!byLabel.LinkedIn) {
+              row.insertAdjacentHTML(
+                "beforeend",
+                '<a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z"/></svg></a>',
+              );
+              byLabel.LinkedIn = row.querySelector('[aria-label="LinkedIn"]')!;
+            }
+            ["TikTok", "Instagram", "Facebook", "Pinterest", "LinkedIn", "YouTube"].forEach(
+              (label) => {
+                if (byLabel[label]) row.appendChild(byLabel[label]);
+              },
+            );
+          });
+        }
 
         const pdpReview = (
           window as unknown as { PdpReviewForm?: { init?: () => void; reload?: () => void } }
@@ -298,16 +395,21 @@ export default function LegacyPage({
   return (
     <>
       <link rel="preconnect" href="https://res.cloudinary.com" />
+      <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       <link rel="preconnect" href="https://db.onlinewebfonts.com" />
       <link rel="preconnect" href="https://db.onlinewebfonts.com" crossOrigin="anonymous" />
-      {initialProduct?.pictures?.[0] ? (
+      {lcpImages.map((href, index) => (
         <link
+          key={href}
           rel="preload"
           as="image"
-          href={initialProduct.pictures[0]}
-          fetchPriority="high"
+          href={href}
+          // First LCP candidate gets highest priority.
+          {...(index === 0 ? { fetchPriority: "high" as const } : {})}
         />
-      ) : null}
+      ))}
+      {/* Sync bootstrap before paint so PDP can hydrate without demo flash. */}
+      <script dangerouslySetInnerHTML={{ __html: bootstrapScript }} />
       {inlineStyles.map((css, index) => (
         <style key={index} dangerouslySetInnerHTML={{ __html: css }} />
       ))}

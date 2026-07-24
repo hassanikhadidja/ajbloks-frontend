@@ -242,6 +242,13 @@
     }).join('');
   }
 
+  function optimizeCloudinary(url, width){
+    var src = String(url || '');
+    if(src.indexOf('res.cloudinary.com') === -1 || src.indexOf('/image/upload/') === -1) return src;
+    if(/\/image\/upload\/[^/]*f_auto/.test(src)) return src;
+    return src.replace('/image/upload/', '/image/upload/f_auto,q_auto:good,w_' + (width || 900) + ',c_limit/');
+  }
+
   function reinitPdpGallery(pictures){
     var slidesEl = document.getElementById('slides');
     var thumbsEl = document.getElementById('thumbs');
@@ -250,10 +257,14 @@
     var nextBtn = document.getElementById('nextBtn');
     if(!slidesEl || !thumbsEl || !pictures || !pictures.length) return;
 
-    slidesEl.innerHTML = pictures.map(function(src){
+    slidesEl.innerHTML = pictures.map(function(src, i){
+      var optimized = optimizeCloudinary(src, i === 0 ? 900 : 640);
+      var eager = i === 0
+        ? ' loading="eager" fetchpriority="high" decoding="async" class="ajb-img ajb-in"'
+        : ' loading="lazy" decoding="async" class="ajb-img" onload="this.classList.add(\'ajb-in\')"';
       return (
         '<div class="slide">' +
-        '<img src="' + esc(src) + '" alt="" style="width:100%;height:100%;object-fit:contain;background:#fff;">' +
+        '<img src="' + esc(optimized) + '" alt=""' + eager + ' style="width:100%;height:100%;object-fit:contain;background:#fff;">' +
         '</div>'
       );
     }).join('');
@@ -277,7 +288,7 @@
       btn.type = 'button';
       btn.className = 'thumb' + (i === 0 ? ' active' : '');
       btn.innerHTML = img
-        ? '<img src="' + esc(img.getAttribute('src')) + '" alt="" style="width:100%;height:100%;object-fit:cover;">'
+        ? '<img src="' + esc(img.getAttribute('src')) + '" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">'
         : '';
       btn.addEventListener('click', function(){ goTo(i); });
       thumbsEl.appendChild(btn);
@@ -340,6 +351,7 @@
     if(layout){
       layout.classList.add('pdp-loaded');
       layout.classList.remove('pdp-awaiting-api');
+      layout.classList.remove('pdp-ssr-ready');
     }
   }
 
@@ -627,9 +639,15 @@
     hideDefaultPdpWarnings();
     initPdpUi();
     var params = new URLSearchParams(window.location.search || '');
+    var layout = document.querySelector('.pdp-layout');
+    // Keep skeleton up until real product is applied (unless SSR already seeded).
+    if(layout && !layout.classList.contains('pdp-loaded')) markPdpAwaiting();
     if(consumeInitialProduct()) return;
     if(params.get('id')) window.loadProductDetailFromQuery();
-    else if(params.get('title')) window.loadProductDetailFromQueryLegacy();
+    else if(params.get('title')){
+      window.loadProductDetailFromQueryLegacy();
+      markPdpLoaded();
+    }
     else if(window.__AJB_PDP_PRODUCT_ID__) markPdpAwaiting();
   }
 
