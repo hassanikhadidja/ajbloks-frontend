@@ -1,5 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+const SITE_URL = "https://www.ajbloks.com";
+const SITE_NAME = "AJ BLOKS";
+const SITE_DESCRIPTION =
+  "AJ BLOKS est la boutique en ligne de jouets, livres et activités pour enfants. Découvrez des jouets créatifs, des idées DIY, des imprimables et des guides cadeaux pour éveiller l'imagination de toute la famille.";
+const OG_IMAGE =
+  "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784894964/photo_2026-07-24_13-09-10_uiezci.jpg";
 
 const apiBase =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -7,8 +14,80 @@ const apiBase =
   "https://api.ajbloks.com";
 
 export const metadata: Metadata = {
-  title: "AJBloks",
-  description: "AJBloks — Jouets, livres et activités pour enfants",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  keywords: [
+    "AJ BLOKS",
+    "jouets",
+    "enfants",
+    "livres pour enfants",
+    "activités DIY",
+    "imprimables",
+    "guides cadeaux",
+    "Algérie",
+  ],
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/icons/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: ["/icons/icon-32.png"],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "fr_DZ",
+    type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 1200,
+        alt: SITE_NAME,
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  other: {
+    "ajb-api-base": apiBase,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#004ebc",
 };
 
 export default function RootLayout({
@@ -18,11 +97,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="ajb-api-base" content={apiBase} />
-      </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

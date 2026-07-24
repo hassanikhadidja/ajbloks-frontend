@@ -1,7 +1,12 @@
 import LegacyPage from "@/components/LegacyPage";
 
 export const metadata = {
-  title: "AJBloks",
+  title: {
+    absolute: "AJ BLOKS",
+  },
+  alternates: {
+    canonical: "https://www.ajbloks.com",
+  },
 };
 
 export default function Page() {
