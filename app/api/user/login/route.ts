@@ -9,12 +9,13 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB();
     const { email, password } = await req.json();
+    const normalizedEmail = String(email ?? "").trim().toLowerCase();
 
-    const user = await User.findOne({ email: String(email ?? "").trim() });
-    if (!user) return jsonError("Bad credential !", 400);
+    const user = await User.findOne({ email: normalizedEmail });
+    if (!user) return jsonError("E-mail ou mot de passe incorrect.", 400);
 
     const match = await bcrypt.compare(String(password ?? ""), user.password);
-    if (!match) return jsonError("Bad credential !", 400);
+    if (!match) return jsonError("E-mail ou mot de passe incorrect.", 400);
 
     const token = signToken(String(user._id));
     return jsonMsg("login success", 200, { token });

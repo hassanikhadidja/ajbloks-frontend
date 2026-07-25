@@ -7,8 +7,6 @@ const SITE_DESCRIPTION =
   "Des jouets qui font sourire, des livres qui font rêver et des activités qui occupent les petits… pendant que les grands soufflent un peu !";
 const OG_IMAGE =
   "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784913328/Design_sans_titre_-_2026-07-24T181520.339_qg18jg.png";
-const IG_IMAGE =
-  "https://res.cloudinary.com/dbtkfjrvd/image/upload/v1784912810/Design_sans_titre_-_2026-07-23T184908.866_akshuc.png";
 
 const apiBase =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -73,14 +71,6 @@ export const metadata: Metadata = {
         alt: SITE_NAME,
         type: "image/png",
       },
-      {
-        // Square art preferred by Instagram link previews
-        url: IG_IMAGE,
-        width: 1080,
-        height: 1080,
-        alt: `${SITE_NAME} — Bear Bob`,
-        type: "image/png",
-      },
     ],
   },
   twitter: {
@@ -91,7 +81,6 @@ export const metadata: Metadata = {
   },
   other: {
     "ajb-api-base": apiBase,
-    "instagram:image": IG_IMAGE,
   },
 };
 

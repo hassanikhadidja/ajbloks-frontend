@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
     if (body.role) return jsonError("Not auth !!", 400);
 
-    const email = String(body.email ?? "").trim();
+    const email = String(body.email ?? "").trim().toLowerCase();
     if (!isValidEmail(email)) return jsonError("Should be format email", 400);
 
     const existing = await User.findOne({ email });
