@@ -1,10 +1,10 @@
-/* Laptop product carousels — 4 cards per row, 310×491, arrow controls */
+/* Laptop product carousels — 4 cards per row, 310 wide, arrow controls */
 @media (min-width: 800px) and (max-width: 1200px), (min-width: 1400px) {
   .carousel-row--paged {
     position: relative;
     padding-left: 52px;
     padding-right: 52px;
-    min-height: 491px;
+    min-height: 0;
   }
 
   .carousel-row--paged .carousel-viewport {
@@ -21,7 +21,7 @@
     display: flex !important;
     flex-wrap: nowrap !important;
     grid-template-columns: unset !important;
-    align-items: stretch !important;
+    align-items: flex-start !important;
     gap: 14px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -48,7 +48,8 @@
     width: 310px !important;
     min-width: 310px !important;
     max-width: 310px !important;
-    height: 491px !important;
+    height: auto !important;
+    align-self: flex-start;
     scroll-snap-align: start;
     box-sizing: border-box;
     overflow: hidden;
@@ -62,8 +63,14 @@
   }
 
   .carousel-row--paged .product-card .product-title {
-    flex: 1;
+    flex: none;
     min-height: 0;
+    margin-bottom: 8px;
+  }
+
+  .carousel-row--paged .product-card .add-cart-btn {
+    flex: none;
+    margin-top: 0;
   }
 
   .carousel-row--paged + .scroll-track,
