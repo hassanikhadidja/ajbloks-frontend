@@ -340,7 +340,7 @@
     row.dataset.listId = item.listId || MAIN_LIST_ID;
 
     var href = item.productId
-      ? "/product-detail-page-mega-bloks?id=" + encodeURIComponent(item.productId)
+      ? "/product-detail-page-ajbloks?id=" + encodeURIComponent(item.productId)
       : "/shop-all-categories-page";
 
     var imgHtml = item.img

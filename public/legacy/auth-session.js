@@ -39,7 +39,7 @@
   }
 
   function getAccountPath() {
-    return "/toysrus-account";
+    return "/ajbloks-account";
   }
 
   function notifyChange() {
@@ -106,7 +106,7 @@
       });
     });
 
-    root.querySelectorAll('a[href*="toysrus-account"], a[data-auth-account]').forEach(function (link) {
+    root.querySelectorAll('a[href*="ajbloks-account"], a[data-auth-account]').forEach(function (link) {
       link.setAttribute("href", loggedIn ? getAccountPath() : getSigninPath("login"));
     });
 

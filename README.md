@@ -1,60 +1,118 @@
-# AJBloks — Next.js storefront + API
+<p align="center">
+  <img src="docs/hero.jpg" alt="AJ BLOKS — Clean Design. Fast Code. Real Results." width="100%" />
+</p>
 
-Full-stack toy store with a legacy HTML UI migrated to Next.js and a MongoDB API layer.
+<h1 align="center">AJ BLOKS</h1>
 
-## Setup
+<p align="center">
+  <strong>Clean design. Fast code. Real results.</strong><br />
+  La boutique de jouets algérienne — inventée pour le sourire des enfants,<br />
+  construite pour la vitesse du web.
+</p>
 
-1. Copy environment variables:
+<p align="center">
+  <a href="https://www.ajbloks.com">www.ajbloks.com</a>
+  ·
+  Jouets · Livres · DIY · Grossiste
+</p>
 
-```bash
-cp .env.example .env.local
-```
+---
 
-2. Fill in MongoDB (`uri`), JWT (`secretKey`), and Cloudinary credentials.
+## Pourquoi ce projet existe
 
-3. Install and run:
+AJ BLOKS n’est pas un clone figé. C’est une vitrine e-commerce full-stack : catalogue vivant, compte client, commande, magasin, activités DIY, et un dashboard CMS pour piloter le contenu sans toucher au code.
+
+Un seul app Next.js. Une API sous `/api/*`. MongoDB derrière. Le fun devant.
+
+---
+
+## Stack
+
+| Couche | Choix |
+|--------|--------|
+| Frontend | **Next.js 16** · **React 19** · TypeScript · Tailwind CSS 4 |
+| Backend | Route Handlers Next.js (`/api/*`) |
+| Base | **MongoDB** + Mongoose |
+| Auth | JWT + bcrypt |
+| Médias | Cloudinary |
+| Email | Resend |
+
+---
+
+## Lancer en local
 
 ```bash
 npm install
-npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Crée un fichier `.env` à la racine (ou complète celui déjà présent) :
 
-## API (`/api/*`)
+```env
+uri=mongodb+srv://USER:PASSWORD@cluster.mongodb.net/BackendDB
+secretKey=your-jwt-secret
+CLOUDINARY_NAME=
+CLOUDINARY_APIKEY=
+CLOUDINARY_APISECRET=
+```
 
-The Next.js app serves all backend routes under `/api`:
-
-| Area | Endpoints |
-|------|-----------|
-| **Auth** | `POST /api/user/register`, `POST /api/user/login`, `GET /api/user/getcurrentuser` |
-| **Users** | `GET /api/user` (admin), `PATCH/DELETE /api/user/[id]` |
-| **Products** | `GET/POST /api/product`, `GET/PATCH/DELETE /api/product/[id]` |
-| **Orders** | `POST /api/order`, `GET /api/order/config`, `GET /api/order/mine`, `GET /api/order/track`, admin CRUD on `/api/order/[id]` |
-| **Reviews** | `GET/POST /api/review`, `PATCH/DELETE /api/review/[id]` |
-| **Stores** | `GET/POST /api/store`, `PATCH/DELETE /api/store/[id]` |
-| **Catalogues** | `GET/POST /api/catalogue`, `PATCH/DELETE /api/catalogue/[id]` |
-| **Play content** | `GET/POST /api/play`, `PATCH/DELETE /api/play/[id]` |
-| **Settings** | `GET/PUT /api/settings/promo-bar` |
-
-JWT is sent as `Authorization: Bearer <token>` (stored in `localStorage` by `public/legacy/api-client.js`).
-
-## Dashboard CMS
-
-The admin dashboard at `/dashboard` uses `dashboard-admin.js` + `dashboard-integration.js` to sync Products, Users, Stores, Catalogues, Play content, Reviews, and promo bar settings with MongoDB.
-
-Create an admin user directly in MongoDB (`role: "admin"`) or register then update the role in the database.
-
-## Standalone Express backend
-
-`BACKEND-DEPLOY-main/` mirrors the same API at `/api/*` (and legacy paths without prefix) for Netlify/serverless deployment. Use the same environment variables.
+Puis :
 
 ```bash
-cd BACKEND-DEPLOY-main
-npm install
 npm run dev
 ```
 
-## Product model
+Ouvre [http://localhost:3000](http://localhost:3000) — promo bar, hero plage, et « Acheter maintenant » devraient déjà respirer.
 
-Products support both storefront fields (`sku`, `stock`, `category`, `img`) and dashboard CMS fields (`articles`, `whyLoveIt`, `qa`, `pictures`, `isBook`, etc.). The `lib/product-mapper.ts` module maps between dashboard and database shapes.
+---
+
+## Ce que l’app sait faire
+
+- **Storefront** — catégories, âge, personnages, nouveautés, PDP, panier, wishlist, checkout  
+- **Compte** — inscription / connexion, profil, Kids Club, suivi de commande  
+- **Contenu** — guides cadeaux, DIY, printables, Le monde de Bob  
+- **Magasins** — trouver un magasin, cartes, coordonnées  
+- **CMS** — `/dashboard` pour produits, users, stores, catalogues, play, reviews, promo bar  
+
+Les routes publiques portent le préfixe marque : `/ajbloks-account`, `/ajbloks-gift-guides`, `/product-detail-page-ajbloks`, etc. Les anciennes URLs `toysrus-*` redirigent automatiquement.
+
+---
+
+## API (aperçu)
+
+Tout vit sous `/api` :
+
+| Domaine | Exemples |
+|---------|----------|
+| Auth | `POST /api/user/register` · `POST /api/user/login` · `GET /api/user/getcurrentuser` |
+| Produits | `GET/POST /api/product` · `GET/PATCH/DELETE /api/product/[id]` |
+| Commandes | `POST /api/order` · `GET /api/order/mine` · `GET /api/order/track` |
+| Reviews · Stores · Catalogues · Play · Newsletter · Settings | CRUD sous leurs préfixes |
+
+Auth : header `Authorization: Bearer <token>`.
+
+---
+
+## Admin
+
+1. Ouvre `/dashboard`  
+2. Connecte-toi avec un user `role: "admin"`  
+3. Gère le catalogue, les magasins, le contenu Play et la barre promo  
+
+---
+
+## Structure (simplifiée)
+
+```
+app/           # pages + API routes
+components/    # LegacyPage et UI partagée
+lib/           # db, auth, models, mappers
+public/        # assets, legacy JS, catalogues, printables
+docs/hero.jpg  # image de couverture README
+```
+
+---
+
+<p align="center">
+  <em>Des jouets qui font sourire. Du code qui livre.</em><br />
+  <strong>AJ BLOKS</strong>
+</p>

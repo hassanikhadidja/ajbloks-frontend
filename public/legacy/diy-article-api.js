@@ -33,7 +33,7 @@
     var tags = parseTags(item.tags);
     var primaryTag = tags[0] || "DIY";
 
-    document.title = title + ' – Toys"R"Us Activités DIY';
+    document.title = title + ' – AJ BLOKS Activités DIY';
     setText("articleTitle", title);
     setText("breadcrumbTitle", title);
     setText("videoTitle", title);
@@ -56,7 +56,7 @@
     var crumb = document.getElementById("breadcrumbTagLink");
     if (crumb) {
       crumb.textContent = primaryTag;
-      crumb.href = "/toysrus-diy-tag?tag=" + encodeURIComponent(primaryTag);
+      crumb.href = "/ajbloks-diy-tag?tag=" + encodeURIComponent(primaryTag);
     }
 
     var tagsEl =
@@ -66,14 +66,14 @@
     if (tagsEl) {
       if (tagsEl.id === "articleTag") {
         tagsEl.textContent = primaryTag;
-        tagsEl.href = "/toysrus-diy-tag?tag=" + encodeURIComponent(primaryTag);
+        tagsEl.href = "/ajbloks-diy-tag?tag=" + encodeURIComponent(primaryTag);
         tagsEl.className = "tag blue";
       } else {
         tagsEl.innerHTML = tags
           .map(function (tag) {
             var color = (window.DIY_TAG_COLORS && window.DIY_TAG_COLORS[tag]) || "blue";
             return (
-              '<a href="/toysrus-diy-tag?tag=' +
+              '<a href="/ajbloks-diy-tag?tag=' +
               encodeURIComponent(tag) +
               '" class="tag ' +
               color +
@@ -111,7 +111,7 @@
       return String(entry.id || entry._id) === String(id);
     });
     if (!item) {
-      window.location.replace("/toysrus-diy-activities");
+      window.location.replace("/ajbloks-diy-activities");
       return true;
     }
     fillArticle(item);
@@ -131,7 +131,7 @@
     if (!slug || typeof window.findDiyActivityBySlug !== "function") return;
     var activity = window.findDiyActivityBySlug(slug);
     if (!activity) {
-      window.location.replace("/toysrus-diy-activities");
+      window.location.replace("/ajbloks-diy-activities");
       return;
     }
     if (activity.href) {

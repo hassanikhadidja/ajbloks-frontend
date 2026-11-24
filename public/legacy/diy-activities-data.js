@@ -12,7 +12,7 @@ window.DIY_ACTIVITIES = [
     title: 'Signaux manuels à vélo',
     description: 'Apprenez les signaux manuels à vélo pour rouler en toute sécurité...',
     tags: ['Bike'],
-    href: '/toysrus-diy-bike-hand-signals',
+    href: '/ajbloks-diy-bike-hand-signals',
     placeholder: 'Deux enfants à vélo'
   },
   {
@@ -173,7 +173,7 @@ window.DIY_ACTIVITIES = [
 
 window.getDiyActivityUrl = function (activity) {
   if (activity.href) return activity.href;
-  return '/toysrus-diy-article?slug=' + encodeURIComponent(activity.slug);
+  return '/ajbloks-diy-article?slug=' + encodeURIComponent(activity.slug);
 };
 
 window.findDiyActivityBySlug = function (slug) {

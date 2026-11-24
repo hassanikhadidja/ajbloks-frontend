@@ -13,10 +13,10 @@
 
   function init() {
     var path = window.location.pathname.replace(/\/$/, '');
-    if (path === '/toysrus-diy-activities') {
+    if (path === '/ajbloks-diy-activities') {
       document.body.classList.add('diy-activities-page');
     }
-    if (path === '/toysrus-printables') {
+    if (path === '/ajbloks-printables') {
       document.body.classList.add('printables-listing-page');
     }
 

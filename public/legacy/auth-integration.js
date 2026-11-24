@@ -72,7 +72,7 @@
         var data = await window.AJBApi.post("/user/login", { email: email, password: password });
         window.AJBApi.setToken(data.token);
         if (window.AJBAuth) await window.AJBAuth.refreshSession();
-        window.location.assign("/toysrus-account");
+        window.location.assign("/ajbloks-account");
       } catch (err) {
         if (loginError) {
           loginError.textContent =
@@ -89,7 +89,7 @@
     // Already logged in: leave the auth page.
     if (window.AJBApi.getToken && window.AJBApi.getToken()) {
       if (document.getElementById("signupForm") || document.getElementById("loginForm")) {
-        window.location.replace("/toysrus-account");
+        window.location.replace("/ajbloks-account");
       }
       return;
     }

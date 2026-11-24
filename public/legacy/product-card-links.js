@@ -1,5 +1,5 @@
 (function(){
-  var PDP = '/product-detail-page-mega-bloks';
+  var PDP = '/product-detail-page-ajbloks';
 
   function esc(text){
     var d = document.createElement('div');
@@ -631,7 +631,7 @@
   };
 
   function isPdpPage(){
-    return /product-detail-page-mega-bloks/.test(window.location.pathname || '');
+    return /product-detail-page-ajbloks/.test(window.location.pathname || '');
   }
 
   function bootProductDetailFromUrl(){

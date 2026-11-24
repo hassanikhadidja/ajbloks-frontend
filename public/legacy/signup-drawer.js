@@ -26,7 +26,7 @@
       '  <input type="email" class="email-input" placeholder="E-mail" id="signupEmailInput">',
       '  <button class="signup-btn" type="button" id="signupSubmitBtn">S\'inscrire</button>',
       '  <p class="fine-print">',
-      '    En cliquant sur S\'inscrire, vous acceptez de recevoir des nouvelles sur les jouets, avis, activités DIY et autres contenus promotionnels d\'AJ BLOKS. Vous consentez également au traitement de vos données personnelles tel que décrit dans la <a href="/toysrus-privacy" id="signupPrivacyLink">politique de confidentialité</a>. Vous pouvez retirer votre consentement à tout moment.',
+      '    En cliquant sur S\'inscrire, vous acceptez de recevoir des nouvelles sur les jouets, avis, activités DIY et autres contenus promotionnels d\'AJ BLOKS. Vous consentez également au traitement de vos données personnelles tel que décrit dans la <a href="/ajbloks-privacy" id="signupPrivacyLink">politique de confidentialité</a>. Vous pouvez retirer votre consentement à tout moment.',
       '  </p>',
       '</div>'
     ].join('');
@@ -136,11 +136,11 @@
     }
 
     if(els.privacyLink){
-      els.privacyLink.setAttribute('href', '/toysrus-privacy');
+      els.privacyLink.setAttribute('href', '/ajbloks-privacy');
       els.privacyLink.addEventListener('click', function(e){
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign('/toysrus-privacy');
+        window.location.assign('/ajbloks-privacy');
       });
     }
 

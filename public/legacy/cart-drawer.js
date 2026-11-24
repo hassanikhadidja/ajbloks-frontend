@@ -375,7 +375,7 @@
       if(card){
         e.preventDefault();
         if(card.dataset.hasColors === 'true' && card.dataset.productId){
-          window.location.href = '/product-detail-page-mega-bloks?id=' + encodeURIComponent(card.dataset.productId);
+          window.location.href = '/product-detail-page-ajbloks?id=' + encodeURIComponent(card.dataset.productId);
           return;
         }
         addToCart(getProductFromCard(card));

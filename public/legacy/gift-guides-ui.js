@@ -53,8 +53,8 @@
 
   function itemUrl(item) {
     var id = encodeURIComponent(item.id);
-    if (item.source === "printables") return "/toysrus-printables#" + id;
-    return "/toysrus-diy-article?id=" + id;
+    if (item.source === "printables") return "/ajbloks-printables#" + id;
+    return "/ajbloks-diy-article?id=" + id;
   }
 
   function mapItem(item, source) {
@@ -109,10 +109,10 @@
   window.getGiftGuideUrl = function (guide) {
     if (guide.href) return guide.href;
     if (guide.source === "printables") {
-      return "/toysrus-printables#" + encodeURIComponent(guide.id || guide.slug || "");
+      return "/ajbloks-printables#" + encodeURIComponent(guide.id || guide.slug || "");
     }
-    if (guide.id) return "/toysrus-diy-article?id=" + encodeURIComponent(guide.id);
-    return "/toysrus-gift-guide-article?slug=" + encodeURIComponent(guide.slug || "");
+    if (guide.id) return "/ajbloks-diy-article?id=" + encodeURIComponent(guide.id);
+    return "/ajbloks-gift-guide-article?slug=" + encodeURIComponent(guide.slug || "");
   };
 
   window.findGiftGuideBySlug = function (slug) {
@@ -132,7 +132,7 @@
       .map(function (tag, index) {
         var color = window.GIFT_GUIDE_TAG_COLORS[tag] || tagColor(tag, index);
         return (
-          '<a href="/toysrus-gift-guide-tag?tag=' +
+          '<a href="/ajbloks-gift-guide-tag?tag=' +
           encodeURIComponent(tag) +
           '" class="tag ' +
           color +
@@ -199,7 +199,7 @@
         var color = tagColor(tag, index);
         window.GIFT_GUIDE_TAG_COLORS[tag] = color;
         return (
-          '<a href="/toysrus-gift-guide-tag?tag=' +
+          '<a href="/ajbloks-gift-guide-tag?tag=' +
           encodeURIComponent(tag) +
           '" class="tag ' +
           color +
@@ -227,7 +227,7 @@
     var crumb = document.getElementById("breadcrumbTag");
     if (header) header.textContent = currentTag ? "Tagged with: " + currentTag : "Guides cadeaux";
     if (crumb) crumb.textContent = currentTag || "Guides cadeaux";
-    if (currentTag) document.title = "Tagged with: " + currentTag + ' – Toys"R"Us Guides cadeaux';
+    if (currentTag) document.title = "Tagged with: " + currentTag + ' – AJ BLOKS Guides cadeaux';
 
     var matches = needle
       ? guides.filter(function (guide) {

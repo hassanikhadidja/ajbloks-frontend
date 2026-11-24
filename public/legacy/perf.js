@@ -11,7 +11,7 @@
   }
   window.__AJB_PERF_BOOTED__ = 1;
 
-  var PDP_PATH = "/product-detail-page-mega-bloks";
+  var PDP_PATH = "/product-detail-page-ajbloks";
   var prefetchedUrls = new Set();
   var prefetchedProducts = new Set();
   var preloadedImages = new Set();
@@ -209,7 +209,7 @@
     var path = window.location.pathname || "/";
     var candidates = [];
     if (path === "/" || path === "") {
-      candidates = ["/outdoor-play", "/toysrus-bobs-world", "/done/find-us", "/shop-all-categories-page"];
+      candidates = ["/outdoor-play", "/ajbloks-bobs-world", "/done/find-us", "/shop-all-categories-page"];
     } else if (/outdoor-play|spider-man|cartoon|new-and-trending|books-page|brand|character/.test(path)) {
       candidates = ["/", PDP_PATH];
     }

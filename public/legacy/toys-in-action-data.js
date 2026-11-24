@@ -73,7 +73,7 @@
       category: product.category || "Produit",
       description: product.description || "",
       inStock: Number(product.stock) > 0,
-      href: "/product-detail-page-mega-bloks?id=" + encodeURIComponent(id),
+      href: "/product-detail-page-ajbloks?id=" + encodeURIComponent(id),
     };
   }
 

@@ -97,9 +97,9 @@
       document.getElementById("loginPassword"),
     );
 
-    wireLegalLink("termsLink", "/toysrus-conditions");
-    wireLegalLink("termsLinkFooter", "/toysrus-conditions");
-    wireLegalLink("privacyLink", "/toysrus-privacy");
+    wireLegalLink("termsLink", "/ajbloks-conditions");
+    wireLegalLink("termsLinkFooter", "/ajbloks-conditions");
+    wireLegalLink("privacyLink", "/ajbloks-privacy");
   }
 
   if (document.readyState === "loading") {

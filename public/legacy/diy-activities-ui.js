@@ -49,7 +49,7 @@
       description: excerpt(item.description),
       tags: tags,
       coverImage: item.coverImage || "",
-      href: "/toysrus-diy-article?id=" + encodeURIComponent(id),
+      href: "/ajbloks-diy-article?id=" + encodeURIComponent(id),
     };
   }
 
@@ -60,13 +60,13 @@
     var url =
       typeof window.getDiyActivityUrl === "function"
         ? window.getDiyActivityUrl(activity)
-        : activity.href || "/toysrus-diy-article?id=" + encodeURIComponent(activity.id || activity.slug || "");
+        : activity.href || "/ajbloks-diy-article?id=" + encodeURIComponent(activity.id || activity.slug || "");
 
     var tagsHtml = (activity.tags || [])
       .map(function (tag, index) {
         var color = tagColor(tag, index);
         return (
-          '<a href="/toysrus-diy-tag?tag=' +
+          '<a href="/ajbloks-diy-tag?tag=' +
           encodeURIComponent(tag) +
           '" class="tag ' +
           color +
@@ -138,7 +138,7 @@
       .map(function (tag, index) {
         var color = tagColor(tag, index);
         return (
-          '<a href="/toysrus-diy-tag?tag=' +
+          '<a href="/ajbloks-diy-tag?tag=' +
           encodeURIComponent(tag) +
           '" class="tag ' +
           color +
@@ -193,7 +193,7 @@
         var crumb = document.getElementById("breadcrumbTag");
         if (header) header.textContent = currentTag ? "Tagged with: " + currentTag : "Activités DIY";
         if (crumb) crumb.textContent = currentTag || "DIY";
-        if (currentTag) document.title = "Tagged with: " + currentTag + ' – Toys"R"Us Activités DIY';
+        if (currentTag) document.title = "Tagged with: " + currentTag + ' – AJ BLOKS Activités DIY';
 
         var matches = needle
           ? activities.filter(function (activity) {

@@ -122,11 +122,11 @@ const nextConfig: NextConfig = {
   },
   {
     source: "/product%20detail%20page%20mega%20bloks.html",
-    destination: "/product-detail-page-mega-bloks"
+    destination: "/product-detail-page-ajbloks"
   },
   {
     source: "/product detail page mega bloks.html",
-    destination: "/product-detail-page-mega-bloks"
+    destination: "/product-detail-page-ajbloks"
   },
   {
     source: "/shop%20all%20categories%20page.html",
@@ -177,172 +177,172 @@ const nextConfig: NextConfig = {
     destination: "/tiktok-like-video"
   },
   {
-    source: "/toysrus-account.html",
-    destination: "/toysrus-account"
+    source: "/ajbloks-account.html",
+    destination: "/ajbloks-account"
   },
   {
-    source: "/toysrus-account.html",
-    destination: "/toysrus-account"
+    source: "/ajbloks-account.html",
+    destination: "/ajbloks-account"
   },
   {
-    source: "/toysrus-bobs-painting.html",
-    destination: "/toysrus-bobs-painting"
+    source: "/ajbloks-bobs-painting.html",
+    destination: "/ajbloks-bobs-painting"
   },
   {
-    source: "/toysrus-bobs-painting.html",
-    destination: "/toysrus-bobs-painting"
+    source: "/ajbloks-bobs-painting.html",
+    destination: "/ajbloks-bobs-painting"
   },
   {
-    source: "/toysrus-bobs-shop.html",
-    destination: "/toysrus-bobs-shop"
+    source: "/ajbloks-bobs-shop.html",
+    destination: "/ajbloks-bobs-shop"
   },
   {
-    source: "/toysrus-bobs-shop.html",
-    destination: "/toysrus-bobs-shop"
+    source: "/ajbloks-bobs-shop.html",
+    destination: "/ajbloks-bobs-shop"
   },
   {
-    source: "/toysrus-bobs-world.html",
-    destination: "/toysrus-bobs-world"
+    source: "/ajbloks-bobs-world.html",
+    destination: "/ajbloks-bobs-world"
   },
   {
-    source: "/toysrus-bobs-world.html",
-    destination: "/toysrus-bobs-world"
+    source: "/ajbloks-bobs-world.html",
+    destination: "/ajbloks-bobs-world"
   },
   {
-    source: "/toysrus-conditions.html",
-    destination: "/toysrus-conditions"
+    source: "/ajbloks-conditions.html",
+    destination: "/ajbloks-conditions"
   },
   {
-    source: "/toysrus-conditions.html",
-    destination: "/toysrus-conditions"
+    source: "/ajbloks-conditions.html",
+    destination: "/ajbloks-conditions"
   },
   {
-    source: "/toysrus-contact.html",
-    destination: "/toysrus-contact"
+    source: "/ajbloks-contact.html",
+    destination: "/ajbloks-contact"
   },
   {
-    source: "/toysrus-contact.html",
-    destination: "/toysrus-contact"
+    source: "/ajbloks-contact.html",
+    destination: "/ajbloks-contact"
   },
   {
-    source: "/toysrus-diy-activities.html",
-    destination: "/toysrus-diy-activities"
+    source: "/ajbloks-diy-activities.html",
+    destination: "/ajbloks-diy-activities"
   },
   {
-    source: "/toysrus-diy-activities.html",
-    destination: "/toysrus-diy-activities"
+    source: "/ajbloks-diy-activities.html",
+    destination: "/ajbloks-diy-activities"
   },
   {
-    source: "/toysrus-diy-article.html",
-    destination: "/toysrus-diy-article"
+    source: "/ajbloks-diy-article.html",
+    destination: "/ajbloks-diy-article"
   },
   {
-    source: "/toysrus-diy-article.html",
-    destination: "/toysrus-diy-article"
+    source: "/ajbloks-diy-article.html",
+    destination: "/ajbloks-diy-article"
   },
   {
-    source: "/toysrus-diy-bike-hand-signals.html",
-    destination: "/toysrus-diy-bike-hand-signals"
+    source: "/ajbloks-diy-bike-hand-signals.html",
+    destination: "/ajbloks-diy-bike-hand-signals"
   },
   {
-    source: "/toysrus-diy-bike-hand-signals.html",
-    destination: "/toysrus-diy-bike-hand-signals"
+    source: "/ajbloks-diy-bike-hand-signals.html",
+    destination: "/ajbloks-diy-bike-hand-signals"
   },
   {
-    source: "/toysrus-diy-tag.html",
-    destination: "/toysrus-diy-tag"
+    source: "/ajbloks-diy-tag.html",
+    destination: "/ajbloks-diy-tag"
   },
   {
-    source: "/toysrus-diy-tag.html",
-    destination: "/toysrus-diy-tag"
+    source: "/ajbloks-diy-tag.html",
+    destination: "/ajbloks-diy-tag"
   },
   {
-    source: "/toysrus-faq%20(2).html",
-    destination: "/toysrus-faq-2"
+    source: "/ajbloks-faq%20(2).html",
+    destination: "/ajbloks-faq-2"
   },
   {
-    source: "/toysrus-faq (2).html",
-    destination: "/toysrus-faq-2"
+    source: "/ajbloks-faq (2).html",
+    destination: "/ajbloks-faq-2"
   },
   {
-    source: "/toysrus-gift-guide-article.html",
-    destination: "/toysrus-gift-guide-article"
+    source: "/ajbloks-gift-guide-article.html",
+    destination: "/ajbloks-gift-guide-article"
   },
   {
-    source: "/toysrus-gift-guide-article.html",
-    destination: "/toysrus-gift-guide-article"
+    source: "/ajbloks-gift-guide-article.html",
+    destination: "/ajbloks-gift-guide-article"
   },
   {
-    source: "/toysrus-gift-guide-tag.html",
-    destination: "/toysrus-gift-guide-tag"
+    source: "/ajbloks-gift-guide-tag.html",
+    destination: "/ajbloks-gift-guide-tag"
   },
   {
-    source: "/toysrus-gift-guide-tag.html",
-    destination: "/toysrus-gift-guide-tag"
+    source: "/ajbloks-gift-guide-tag.html",
+    destination: "/ajbloks-gift-guide-tag"
   },
   {
-    source: "/toysrus-gift-guides.html",
-    destination: "/toysrus-gift-guides"
+    source: "/ajbloks-gift-guides.html",
+    destination: "/ajbloks-gift-guides"
   },
   {
-    source: "/toysrus-gift-guides.html",
-    destination: "/toysrus-gift-guides"
+    source: "/ajbloks-gift-guides.html",
+    destination: "/ajbloks-gift-guides"
   },
   {
-    source: "/toysrus-livraison.html",
-    destination: "/toysrus-livraison"
+    source: "/ajbloks-livraison.html",
+    destination: "/ajbloks-livraison"
   },
   {
-    source: "/toysrus-livraison.html",
-    destination: "/toysrus-livraison"
+    source: "/ajbloks-livraison.html",
+    destination: "/ajbloks-livraison"
   },
   {
-    source: "/toysrus-notre-histoire.html",
-    destination: "/toysrus-notre-histoire"
+    source: "/ajbloks-notre-histoire.html",
+    destination: "/ajbloks-notre-histoire"
   },
   {
-    source: "/toysrus-notre-histoire.html",
-    destination: "/toysrus-notre-histoire"
+    source: "/ajbloks-notre-histoire.html",
+    destination: "/ajbloks-notre-histoire"
   },
   {
-    source: "/toysrus-printables.html",
-    destination: "/toysrus-printables"
+    source: "/ajbloks-printables.html",
+    destination: "/ajbloks-printables"
   },
   {
-    source: "/toysrus-printables.html",
-    destination: "/toysrus-printables"
+    source: "/ajbloks-printables.html",
+    destination: "/ajbloks-printables"
   },
   {
-    source: "/toysrus-privacy.html",
-    destination: "/toysrus-privacy"
+    source: "/ajbloks-privacy.html",
+    destination: "/ajbloks-privacy"
   },
   {
-    source: "/toysrus-privacy.html",
-    destination: "/toysrus-privacy"
+    source: "/ajbloks-privacy.html",
+    destination: "/ajbloks-privacy"
   },
   {
-    source: "/toysrus-retours-echanges.html",
-    destination: "/toysrus-retours-gift"
+    source: "/ajbloks-retours-echanges.html",
+    destination: "/ajbloks-retours-gift"
   },
   {
-    source: "/toysrus-retours-echanges.html",
-    destination: "/toysrus-retours-gift"
+    source: "/ajbloks-retours-echanges.html",
+    destination: "/ajbloks-retours-gift"
   },
   {
-    source: "/toysrus-retours-gift.html",
-    destination: "/toysrus-retours-gift"
+    source: "/ajbloks-retours-gift.html",
+    destination: "/ajbloks-retours-gift"
   },
   {
-    source: "/toysrus-retours-gift.html",
-    destination: "/toysrus-retours-gift"
+    source: "/ajbloks-retours-gift.html",
+    destination: "/ajbloks-retours-gift"
   },
   {
-    source: "/toysrus-track-order.html",
-    destination: "/toysrus-account?section=kids-club"
+    source: "/ajbloks-track-order.html",
+    destination: "/ajbloks-account?section=kids-club"
   },
   {
-    source: "/toysrus-track-order.html",
-    destination: "/toysrus-account?section=kids-club"
+    source: "/ajbloks-track-order.html",
+    destination: "/ajbloks-account?section=kids-club"
   },
   {
     source: "/cartoon%20et%20friends.html",
@@ -363,17 +363,59 @@ const nextConfig: NextConfig = {
 ];
   },
   async redirects() {
+    const legacySlugs = [
+      "account",
+      "bobs-painting",
+      "bobs-shop",
+      "bobs-world",
+      "conditions",
+      "contact",
+      "diy-activities",
+      "diy-article",
+      "diy-bike-hand-signals",
+      "diy-tag",
+      "faq-2",
+      "gift-guide-article",
+      "gift-guide-tag",
+      "gift-guides",
+      "livraison",
+      "notre-histoire",
+      "printables",
+      "privacy",
+      "retours-gift",
+    ];
+
     return [
       {
+        source: "/ajbloks-retours-echanges",
+        destination: "/ajbloks-retours-gift",
+        permanent: true,
+      },
+      {
+        source: "/ajbloks-track-order",
+        destination: "/ajbloks-account?section=kids-club",
+        permanent: true,
+      },
+      {
         source: "/toysrus-retours-echanges",
-        destination: "/toysrus-retours-gift",
+        destination: "/ajbloks-retours-gift",
         permanent: true,
       },
       {
         source: "/toysrus-track-order",
-        destination: "/toysrus-account?section=kids-club",
+        destination: "/ajbloks-account?section=kids-club",
         permanent: true,
       },
+      {
+        source: "/product-detail-page-mega-bloks",
+        destination: "/product-detail-page-ajbloks",
+        permanent: true,
+      },
+      ...legacySlugs.map((slug) => ({
+        source: `/toysrus-${slug}`,
+        destination: `/ajbloks-${slug}`,
+        permanent: true,
+      })),
     ];
   },
 };

@@ -2,8 +2,8 @@
   var path = (window.location.pathname || '').replace(/\\/g, '/');
 
   var ROUTES = [
-    { prefix: '/toysrus-contact', cls: 'contact-page' },
-    { prefix: '/toysrus-retours-gift', cls: 'gift-return-page' }
+    { prefix: '/ajbloks-contact', cls: 'contact-page' },
+    { prefix: '/ajbloks-retours-gift', cls: 'gift-return-page' }
   ];
 
   function applyPageClass() {
